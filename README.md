@@ -11,9 +11,6 @@ EAPlayers is a Kotlin Multiplatform project that leverages **Compose Multiplatfo
 EAPlayers is a showcase of the latest Kotlin Multiplatform technologies for mobile development using a fully Compose-based UI framework for both Android and iOS. Key features include:
 
 - **Shared ViewModels** for business logic across platforms
-- **Kotlin Multiplatform** integration
-- **Jetpack Compose** for Android and **Compose Multiplatform** for iOS
-- **MVVM Architecture**
 - **Fetching player details** and team information from [EA's Drop API](https://drop-api.ea.com)
 - **Dark mode** support for both platforms
 - **Koin** for dependency injection
