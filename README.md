@@ -6,6 +6,8 @@ EAPlayers is a Kotlin Multiplatform project that leverages **Compose Multiplatfo
 ![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)
 ![Kotlin](https://img.shields.io/badge/Kotlin-0095D5?&style=for-the-badge&logo=kotlin&logoColor=white)
 
+<img src="/screenshots/eaplayers.gif" width="300" />
+
 ### About the project
 
 EAPlayers is a showcase of the latest Kotlin Multiplatform technologies for mobile development using a fully Compose-based UI framework for both Android and iOS. Key features include:
