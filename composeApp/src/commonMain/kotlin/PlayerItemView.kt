@@ -16,7 +16,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
@@ -43,16 +42,16 @@ fun PlayerItemView(player: Player, onPlayerClick: (Player) -> Unit) {
             verticalAlignment = Alignment.CenterVertically
         ) {
             AsyncImage(
-                model = player.shieldUrl,
+                model = player.avatarUrl,
                 contentDescription = "${player.firstName} ${player.lastName}",
                 modifier = Modifier
+                    .size(100.dp)
                     .padding(end = 16.dp),
-                contentScale = ContentScale.Crop
             )
 
             Column(modifier = Modifier.weight(1f)) {
                 Text(
-                    text = "${player.firstName} ${player.lastName}",
+                    text = player.commonName ?: "${player.firstName} ${player.lastName}",
                     style = MaterialTheme.typography.titleMedium.copy(
                         fontWeight = FontWeight.Bold
                     ),
