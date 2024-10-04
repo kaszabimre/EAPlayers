@@ -27,8 +27,9 @@ koinAndroid = "3.5.0"
 koinAndroidCompose = "3.5.0"
 koinCompose = "1.1.1-RC1"
 
-detekt = "1.23.3"
+detekt = "1.23.7"
 composeMaterial = "1.4.0"
+statelyCommon = "2.0.5"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -70,6 +71,7 @@ koin-ktor = { module = "io.insert-koin:koin-ktor", version.ref = "koin" }
 detekt-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detekt" }
 detekt-gradle-plugin = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin", version.ref = "detekt" }
 androidx-compose-material = { group = "androidx.wear.compose", name = "compose-material", version.ref = "composeMaterial" }
+stately-common = { module = "co.touchlab:stately-common", version.ref = "statelyCommon" }
 
 [plugins]
 kotlin-parcelize = { id = "kotlin-parcelize", version = "kotlin" }
