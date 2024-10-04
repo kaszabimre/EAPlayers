@@ -109,3 +109,6 @@ android {
         detektPlugins(libs.detekt.formatting)
     }
 }
+dependencies {
+    implementation(libs.androidx.compose.material)
+}

@@ -16,8 +16,6 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CheckCircle
@@ -30,8 +28,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
 import io.imrekaszab.eaplayers.domain.model.Player
 import theme.AppTheme
@@ -48,15 +44,15 @@ fun PlayerDetailView(
         modifier = modifier
             .fillMaxSize()
             .verticalScroll(rememberScrollState())
-            .padding(horizontal = 16.dp)
+            .padding(horizontal = AppTheme.dimens.margin.default)
             .background(AppTheme.colorScheme.background)
     ) {
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(vertical = 16.dp)
+                .padding(vertical = AppTheme.dimens.margin.default)
                 .aspectRatio(1f)
-                .clip(RoundedCornerShape(16.dp))
+                .clip(AppTheme.shapes.default.roundedDefault)
                 .background(AppTheme.colorScheme.surface)
         ) {
             AsyncImage(
@@ -72,16 +68,16 @@ fun PlayerDetailView(
         ) {
             Text(
                 text = "${player.firstName} ${player.lastName}",
-                style = AppTheme.typography.heading.large.copy(fontWeight = FontWeight.Bold),
+                style = AppTheme.typography.heading.large,
                 color = AppTheme.colorScheme.onBackground
             )
             Text(
                 text = "Rank: ${player.rank}",
-                style = AppTheme.typography.heading.large.copy(fontSize = 18.sp),
+                style = AppTheme.typography.heading.large,
                 color = AppTheme.colorScheme.secondary
             )
 
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(AppTheme.dimens.margin.default))
 
             Row(
                 modifier = Modifier.fillMaxWidth(),
@@ -99,7 +95,7 @@ fun PlayerDetailView(
                 )
             }
         }
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(AppTheme.dimens.margin.default))
 
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -122,7 +118,7 @@ fun PlayerDetailView(
             )
         }
 
-        Spacer(modifier = Modifier.height(24.dp))
+        Spacer(modifier = Modifier.height(AppTheme.dimens.margin.big))
 
         if (player.playerAbilities.isNotEmpty()) {
             Text(
@@ -130,36 +126,39 @@ fun PlayerDetailView(
                 style = AppTheme.typography.heading.medium,
                 color = AppTheme.colorScheme.onBackground
             )
-            Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(AppTheme.dimens.margin.tiny))
 
             player.playerAbilities.forEach { ability ->
                 AbilityItemView(ability)
             }
         }
 
-        Spacer(modifier = Modifier.height(24.dp))
+        Spacer(modifier = Modifier.height(AppTheme.dimens.margin.big))
 
         Text(
             text = "Team mates",
             style = AppTheme.typography.heading.medium,
             color = AppTheme.colorScheme.onBackground
         )
-        Spacer(modifier = Modifier.height(8.dp))
+        Spacer(modifier = Modifier.height(AppTheme.dimens.margin.tiny))
 
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(400.dp)
+                .height(AppTheme.dimens.playerDetailView.boxSize)
         ) {
-            LazyVerticalGrid(columns = GridCells.Adaptive(minSize = 100.dp)) {
+            LazyVerticalGrid(
+                columns =
+                GridCells.Adaptive(minSize = AppTheme.dimens.playerDetailView.gridMinSize)
+            ) {
                 items(
                     player.teamMates.filter { it.id != player.id }
                         .sortedByDescending { it.overallRating }
                 ) { mate ->
                     Column(
                         modifier = Modifier
-                            .padding(8.dp)
-                            .width(width = 80.dp)
+                            .padding(AppTheme.dimens.margin.tiny)
+                            .width(width = AppTheme.dimens.playerDetailView.cardWidth)
                             .clickable {
                                 onTeamMateSelected(mate)
                             },
@@ -167,12 +166,12 @@ fun PlayerDetailView(
                     ) {
                         AsyncImage(
                             modifier = Modifier
-                                .size(50.dp)
-                                .clip(CircleShape),
+                                .size(AppTheme.dimens.playerDetailView.imageSize)
+                                .clip(AppTheme.shapes.default.circle),
                             model = mate.avatarUrl,
                             contentDescription = mate.lastName
                         )
-                        Spacer(modifier = Modifier.height(8.dp))
+                        Spacer(modifier = Modifier.height(AppTheme.dimens.margin.tiny))
                         Text(
                             text = mate.commonName
                                 ?: (mate.firstName + ". " + mate.lastName.first()),

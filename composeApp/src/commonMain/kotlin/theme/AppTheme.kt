@@ -16,7 +16,7 @@ import androidx.compose.runtime.ReadOnlyComposable
 fun AppTheme(
     dimens: AppDimens = AppTheme.dimens,
     shapes: AppShapes = AppShapes(AppTheme.dimens),
-    darkTheme: Boolean = false,  // Flag to toggle between light and dark themes
+    darkTheme: Boolean = isSystemInDarkTheme(), // Flag to toggle between light and dark themes
     colors: AppColors = AppColors(),
     colorScheme: ColorScheme = getColorScheme(darkTheme = darkTheme),
     typography: AppTypography = AppTypography(
@@ -62,11 +62,14 @@ object AppTheme {
         @ReadOnlyComposable
         get() = LocalAppTypography.current
 
+    // Dynamically generate the ColorScheme from the current AppColors
     val colorScheme: ColorScheme
-      @Composable
-      @ReadOnlyComposable
-      get() = getColorScheme(isSystemInDarkTheme())
-
+        @Composable
+        @ReadOnlyComposable
+        get() {
+            val darkTheme = isSystemInDarkTheme()
+            return if (darkTheme) getDarkColors(LocalAppColors.current) else getLightColors(LocalAppColors.current)
+        }
     val shapes: AppShapes
         @Composable
         @ReadOnlyComposable
