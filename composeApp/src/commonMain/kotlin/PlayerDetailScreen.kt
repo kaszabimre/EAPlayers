@@ -11,7 +11,6 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import io.imrekaszab.eaplayers.core.util.invoke
 import io.imrekaszab.eaplayers.viewmodel.PlayerDetailViewModel
@@ -37,7 +36,7 @@ fun PlayerDetailScreen(
     Scaffold(
         topBar = {
             IconButton(
-                modifier = Modifier.padding(4.dp),
+                modifier = Modifier.padding(AppTheme.dimens.margin.extraTiny),
                 onClick = { navHostController.popBackStack() }
             ) {
                 Icon(
@@ -46,7 +45,9 @@ fun PlayerDetailScreen(
                     tint = AppTheme.colorScheme.onBackground
                 )
             }
-        }
+        },
+        containerColor = AppTheme.colorScheme.background,
+        contentColor = AppTheme.colorScheme.onPrimary
     ) { innerPadding ->
         when {
             uiState.loading -> CircularProgressIndicator()

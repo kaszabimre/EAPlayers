@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Surface
@@ -16,7 +15,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import io.imrekaszab.eaplayers.domain.model.Player
 import theme.AppTheme
@@ -45,7 +43,7 @@ fun PlayerItemView(player: Player, onPlayerClick: (Player) -> Unit) {
                 model = player.avatarUrl,
                 contentDescription = "${player.firstName} ${player.lastName}",
                 modifier = Modifier
-                    .size(100.dp)
+                    .size(AppTheme.dimens.playerDetailView.playerItemImageSize)
                     .padding(end = AppTheme.dimens.margin.default),
             )
 
@@ -72,7 +70,7 @@ fun PlayerItemView(player: Player, onPlayerClick: (Player) -> Unit) {
             Surface(
                 shape = AppTheme.shapes.default.roundedDefault,
                 color = AppTheme.colorScheme.primary,
-                modifier = Modifier.size(50.dp)
+                modifier = Modifier.size(AppTheme.dimens.margin.extraLarge)
             ) {
                 Column(
                     modifier = Modifier.fillMaxSize(),
@@ -81,13 +79,13 @@ fun PlayerItemView(player: Player, onPlayerClick: (Player) -> Unit) {
                 ) {
                     Text(
                         text = "Rank",
-                        style = AppTheme.typography.body.small,
-                        color = AppTheme.colorScheme.onPrimary,
+                        style = AppTheme.typography.body.extraSmall,
+                        color = AppTheme.colors.blackAndWhite.white,
                     )
                     Text(
                         text = player.rank.toString(),
-                        color = AppTheme.colorScheme.onPrimary,
-                        style = AppTheme.typography.heading.medium
+                        color = AppTheme.colors.blackAndWhite.white,
+                        style = AppTheme.typography.body.large
                     )
                 }
             }
