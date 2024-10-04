@@ -2,6 +2,8 @@
 
 EAPlayers is a Kotlin Multiplatform project that leverages **Compose Multiplatform** for both Android and iOS to provide a fully native mobile app experience. The project uses [EA's Drop API](https://drop-api.ea.com) to fetch player information.
 
+![GitHub Actions build status](https://github.com/kaszabimre/EAPlayers/actions/workflows/PR.yml/badge.svg)
+
 ![iOS](https://img.shields.io/badge/iOS-000000?style=for-the-badge&logo=ios&logoColor=white)
 ![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)
 ![Kotlin](https://img.shields.io/badge/Kotlin-0095D5?&style=for-the-badge&logo=kotlin&logoColor=white)
