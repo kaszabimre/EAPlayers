@@ -35,7 +35,7 @@ fun PlayerListScreen(
 ) {
     val uiState by viewModel.uiState.collectAsStateInLifecycle()
 
-    var searchQuery by remember { mutableStateOf("") }
+    var searchQuery by remember { mutableStateOf(viewModel.uiState.value.textFieldValue) }
 
     LaunchedEffect(searchQuery) {
         viewModel.refreshPlayers(searchQuery)
