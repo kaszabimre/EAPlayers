@@ -48,7 +48,7 @@ kotlin {
             implementation(libs.ktor.client.core)
             implementation(libs.koin.core)
             implementation(libs.koin.compose.multiplatform)
-            implementation("co.touchlab:stately-common:2.0.5")
+            implementation(libs.stately.common)
 
             implementation(libs.coil.compose.core)
             implementation(libs.coil.compose)
