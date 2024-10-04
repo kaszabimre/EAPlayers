@@ -96,6 +96,7 @@ android {
         buildConfig = true
     }
     dependencies {
+        implementation(libs.androidx.compose.material)
         implementation(libs.kotlinx.coroutines.android)
         debugImplementation(compose.uiTooling)
         implementation(libs.compose.ui)

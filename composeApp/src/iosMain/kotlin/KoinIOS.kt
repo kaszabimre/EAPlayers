@@ -1,3 +1,4 @@
+@file:Suppress("MissingPackageDeclaration")
 import co.touchlab.kermit.Logger
 import io.imrekaszab.eaplayers.di.initKoin
 import io.ktor.client.engine.darwin.Darwin

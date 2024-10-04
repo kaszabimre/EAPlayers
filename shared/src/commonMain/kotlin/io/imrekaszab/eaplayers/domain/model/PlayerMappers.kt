@@ -1,6 +1,11 @@
 package io.imrekaszab.eaplayers.domain.model
 
-import io.imrekaszab.eaplayers.model.*
+import io.imrekaszab.eaplayers.model.AbilityTypeApiModel
+import io.imrekaszab.eaplayers.model.NationalityApiModel
+import io.imrekaszab.eaplayers.model.PlayerAbilityApiModel
+import io.imrekaszab.eaplayers.model.PlayerApiModel
+import io.imrekaszab.eaplayers.model.PositionApiModel
+import io.imrekaszab.eaplayers.model.TeamApiModel
 
 fun PlayerApiModel.toPlayer() = Player(
     id = this.id,

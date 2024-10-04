@@ -1,10 +1,11 @@
+package screen
+
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -12,12 +13,13 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import io.imrekaszab.eaplayers.core.util.invoke
 import io.imrekaszab.eaplayers.viewmodel.PlayerDetailViewModel
 import navigation.EAPlayersScreens
 import org.koin.compose.koinInject
+import theme.AppTheme
+import widget.PlayerDetailView
 
 @Composable
 fun PlayerDetailScreen(
@@ -37,16 +39,18 @@ fun PlayerDetailScreen(
     Scaffold(
         topBar = {
             IconButton(
-                modifier = Modifier.padding(4.dp),
+                modifier = Modifier.padding(AppTheme.dimens.margin.extraTiny),
                 onClick = { navHostController.popBackStack() }
             ) {
                 Icon(
                     imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                     contentDescription = "Back",
-                    tint = MaterialTheme.colorScheme.onBackground
+                    tint = AppTheme.colorScheme.onBackground
                 )
             }
-        }
+        },
+        containerColor = AppTheme.colorScheme.background,
+        contentColor = AppTheme.colorScheme.onPrimary
     ) { innerPadding ->
         when {
             uiState.loading -> CircularProgressIndicator()
