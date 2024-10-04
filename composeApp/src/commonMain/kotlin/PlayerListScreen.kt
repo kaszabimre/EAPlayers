@@ -15,12 +15,12 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import io.imrekaszab.eaplayers.core.util.collectAsStateInLifecycle
 import io.imrekaszab.eaplayers.core.util.invoke
 import io.imrekaszab.eaplayers.viewmodel.PlayerListViewModel
 import navigation.EAPlayersScreens
+import theme.AppTheme
 
 @Composable
 fun PlayerListScreen(
@@ -34,10 +34,10 @@ fun PlayerListScreen(
     LaunchedEffect(searchQuery) {
         viewModel.refreshPlayers(searchQuery)
     }
-    LazyColumn(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+    LazyColumn(verticalArrangement = Arrangement.spacedBy(AppTheme.dimens.margin.tiny)) {
         item {
             TextField(
-                modifier = Modifier.fillMaxWidth().padding(8.dp),
+                modifier = Modifier.fillMaxWidth().padding(AppTheme.dimens.margin.tiny),
                 value = searchQuery,
                 onValueChange = { searchQuery = it }
             )

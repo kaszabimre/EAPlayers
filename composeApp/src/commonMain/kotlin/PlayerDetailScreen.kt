@@ -4,7 +4,6 @@ import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -18,6 +17,7 @@ import io.imrekaszab.eaplayers.core.util.invoke
 import io.imrekaszab.eaplayers.viewmodel.PlayerDetailViewModel
 import navigation.EAPlayersScreens
 import org.koin.compose.koinInject
+import theme.AppTheme
 
 @Composable
 fun PlayerDetailScreen(
@@ -43,7 +43,7 @@ fun PlayerDetailScreen(
                 Icon(
                     imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                     contentDescription = "Back",
-                    tint = MaterialTheme.colorScheme.onBackground
+                    tint = AppTheme.colorScheme.onBackground
                 )
             }
         }
