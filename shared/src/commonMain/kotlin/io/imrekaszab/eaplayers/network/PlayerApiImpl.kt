@@ -6,10 +6,12 @@ import io.ktor.client.call.body
 import io.ktor.client.request.get
 import io.ktor.client.request.parameter
 
+private const val LIMIT = 100
+private const val URL_STRING = "rating/fc-24"
 class PlayerApiImpl(private val httpClient: HttpClient) : PlayerApi {
     override suspend fun getPlayersResponse(search: String): PlayersResponse? {
-        val request = httpClient.get("rating/fc-24") {
-            parameter("limit", 100)
+        val request = httpClient.get(URL_STRING) {
+            parameter("limit", LIMIT)
             if (search.isNotEmpty()) {
                 parameter("search", search)
             }
@@ -23,8 +25,8 @@ class PlayerApiImpl(private val httpClient: HttpClient) : PlayerApi {
     }
 
     override suspend fun getPlayersResponseByTeam(teamId: Int): PlayersResponse? {
-        val request = httpClient.get("rating/fc-24") {
-            parameter("limit", 100)
+        val request = httpClient.get(URL_STRING) {
+            parameter("limit", LIMIT)
             parameter("team", teamId)
         }
 

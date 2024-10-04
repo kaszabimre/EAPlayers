@@ -23,7 +23,7 @@ data class AppColors(
     val onSecondary: Color = BlackAndWhite().black, // Black on Yellow
     val secondaryContainer: Color = Yellow().light2, // Light Yellow
     val onSecondaryContainer: Color = BlackAndWhite().black, // Black on Light Yellow
-    val backgroundSurfaceColors: BackgroundSurfaceColors = BackgroundSurfaceColors(), // New Background and Surface Colors
+    val backgroundSurfaceColors: BackgroundSurfaceColors = BackgroundSurfaceColors(),
     val blackAndWhite: BlackAndWhite = BlackAndWhite(),
     val red: Red = Red(),
     val yellow: Yellow = Yellow(), // Yellow Color

@@ -55,3 +55,7 @@ allprojects {
         jvmTarget = libs.versions.javaTargetCompatibility.get()
     }
 }
+
+dependencies {
+    detektPlugins(libs.detekt.formatting)
+}

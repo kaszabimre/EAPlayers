@@ -1,3 +1,5 @@
+package screen
+
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
@@ -17,6 +19,7 @@ import io.imrekaszab.eaplayers.viewmodel.PlayerDetailViewModel
 import navigation.EAPlayersScreens
 import org.koin.compose.koinInject
 import theme.AppTheme
+import widget.PlayerDetailView
 
 @Composable
 fun PlayerDetailScreen(

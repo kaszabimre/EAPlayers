@@ -1,3 +1,5 @@
+package screen
+
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -24,6 +26,8 @@ import io.imrekaszab.eaplayers.core.util.invoke
 import io.imrekaszab.eaplayers.viewmodel.PlayerListViewModel
 import navigation.EAPlayersScreens
 import theme.AppTheme
+import widget.PlayerItemView
+
 @Composable
 fun PlayerListScreen(
     viewModel: PlayerListViewModel,
@@ -54,36 +58,7 @@ fun PlayerListScreen(
                     value = searchQuery,
                     textStyle = AppTheme.typography.body.medium,
                     onValueChange = { searchQuery = it },
-                    colors = TextFieldDefaults.colors().copy(
-                        // Text Colors
-                        focusedTextColor = AppTheme.colorScheme.primaryContainer,
-                        unfocusedTextColor = AppTheme.colorScheme.primaryContainer,
-                        disabledTextColor = AppTheme.colorScheme.onSurface.copy(alpha = 0.38f),
-                        errorTextColor = AppTheme.colorScheme.error,
-
-                        // Container Colors
-                        focusedContainerColor = AppTheme.colorScheme.surface,
-                        unfocusedContainerColor = AppTheme.colorScheme.surfaceVariant,
-                        disabledContainerColor = AppTheme.colorScheme.surface.copy(alpha = 0.12f),
-                        errorContainerColor = AppTheme.colorScheme.errorContainer,
-
-                        // Cursor and Text Selection Colors
-                        cursorColor = AppTheme.colorScheme.primary,
-                        errorCursorColor = AppTheme.colorScheme.error,
-                        textSelectionColors = LocalTextSelectionColors.current,
-
-                        // Indicator (Underline) Colors
-                        focusedIndicatorColor = AppTheme.colorScheme.primary,
-                        unfocusedIndicatorColor = AppTheme.colorScheme.outline,
-                        disabledIndicatorColor = AppTheme.colorScheme.onSurface.copy(alpha = 0.38f),
-                        errorIndicatorColor = AppTheme.colorScheme.error,
-
-                        // Label Colors (Fix for Light Mode)
-                        focusedLabelColor = AppTheme.colorScheme.onSurface,
-                        unfocusedLabelColor = AppTheme.colorScheme.onSurfaceVariant,
-                        disabledLabelColor = AppTheme.colorScheme.onSurface.copy(alpha = 0.38f),
-                        errorLabelColor = AppTheme.colorScheme.error
-                    )
+                    colors = textFieldColors()
                 )
             }
 
@@ -106,7 +81,11 @@ fun PlayerListScreen(
                         player = player,
                         onPlayerClick = {
                             viewModel.selectPlayer(player)
-                            navHostController.navigate(EAPlayersScreens.DetailsScreen.createRoute(player.id))
+                            navHostController.navigate(
+                                EAPlayersScreens.DetailsScreen.createRoute(
+                                    player.id
+                                )
+                            )
                         }
                     )
                 }
@@ -114,3 +93,36 @@ fun PlayerListScreen(
         }
     }
 }
+
+@Composable
+fun textFieldColors() =
+    TextFieldDefaults.colors().copy(
+        // Text Colors
+        focusedTextColor = AppTheme.colorScheme.primaryContainer,
+        unfocusedTextColor = AppTheme.colorScheme.primaryContainer,
+        disabledTextColor = AppTheme.colorScheme.onSurface.copy(alpha = 0.38f),
+        errorTextColor = AppTheme.colorScheme.error,
+
+        // Container Colors
+        focusedContainerColor = AppTheme.colorScheme.surface,
+        unfocusedContainerColor = AppTheme.colorScheme.surfaceVariant,
+        disabledContainerColor = AppTheme.colorScheme.surface.copy(alpha = 0.12f),
+        errorContainerColor = AppTheme.colorScheme.errorContainer,
+
+        // Cursor and Text Selection Colors
+        cursorColor = AppTheme.colorScheme.primary,
+        errorCursorColor = AppTheme.colorScheme.error,
+        textSelectionColors = LocalTextSelectionColors.current,
+
+        // Indicator (Underline) Colors
+        focusedIndicatorColor = AppTheme.colorScheme.primary,
+        unfocusedIndicatorColor = AppTheme.colorScheme.outline,
+        disabledIndicatorColor = AppTheme.colorScheme.onSurface.copy(alpha = 0.38f),
+        errorIndicatorColor = AppTheme.colorScheme.error,
+
+        // Label Colors (Fix for Light Mode)
+        focusedLabelColor = AppTheme.colorScheme.onSurface,
+        unfocusedLabelColor = AppTheme.colorScheme.onSurfaceVariant,
+        disabledLabelColor = AppTheme.colorScheme.onSurface.copy(alpha = 0.38f),
+        errorLabelColor = AppTheme.colorScheme.error
+    )
