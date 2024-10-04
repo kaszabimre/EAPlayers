@@ -23,7 +23,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Star
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -35,6 +34,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
 import io.imrekaszab.eaplayers.domain.model.Player
+import theme.AppTheme
 import widget.AbilityItemView
 import widget.PlayerStatItem
 
@@ -49,7 +49,7 @@ fun PlayerDetailView(
             .fillMaxSize()
             .verticalScroll(rememberScrollState())
             .padding(horizontal = 16.dp)
-            .background(MaterialTheme.colorScheme.background)
+            .background(AppTheme.colorScheme.background)
     ) {
         Box(
             modifier = Modifier
@@ -57,7 +57,7 @@ fun PlayerDetailView(
                 .padding(vertical = 16.dp)
                 .aspectRatio(1f)
                 .clip(RoundedCornerShape(16.dp))
-                .background(MaterialTheme.colorScheme.surface)
+                .background(AppTheme.colorScheme.surface)
         ) {
             AsyncImage(
                 model = player.shieldUrl,
@@ -72,13 +72,13 @@ fun PlayerDetailView(
         ) {
             Text(
                 text = "${player.firstName} ${player.lastName}",
-                style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Bold),
-                color = MaterialTheme.colorScheme.onBackground
+                style = AppTheme.typography.heading.large.copy(fontWeight = FontWeight.Bold),
+                color = AppTheme.colorScheme.onBackground
             )
             Text(
                 text = "Rank: ${player.rank}",
-                style = MaterialTheme.typography.bodyLarge.copy(fontSize = 18.sp),
-                color = MaterialTheme.colorScheme.secondary
+                style = AppTheme.typography.heading.large.copy(fontSize = 18.sp),
+                color = AppTheme.colorScheme.secondary
             )
 
             Spacer(modifier = Modifier.height(16.dp))
@@ -127,8 +127,8 @@ fun PlayerDetailView(
         if (player.playerAbilities.isNotEmpty()) {
             Text(
                 text = "Abilities",
-                style = MaterialTheme.typography.headlineMedium,
-                color = MaterialTheme.colorScheme.onBackground
+                style = AppTheme.typography.heading.medium,
+                color = AppTheme.colorScheme.onBackground
             )
             Spacer(modifier = Modifier.height(8.dp))
 
@@ -141,8 +141,8 @@ fun PlayerDetailView(
 
         Text(
             text = "Team mates",
-            style = MaterialTheme.typography.headlineMedium,
-            color = MaterialTheme.colorScheme.onBackground
+            style = AppTheme.typography.heading.medium,
+            color = AppTheme.colorScheme.onBackground
         )
         Spacer(modifier = Modifier.height(8.dp))
 
@@ -177,15 +177,15 @@ fun PlayerDetailView(
                             text = mate.commonName
                                 ?: (mate.firstName + ". " + mate.lastName.first()),
                             textAlign = TextAlign.Center,
-                            style = MaterialTheme.typography.bodySmall.copy(
+                            style = AppTheme.typography.body.small.copy(
                                 fontWeight = FontWeight.Bold
                             ),
-                            color = MaterialTheme.colorScheme.onSurface
+                            color = AppTheme.colorScheme.onSurface
                         )
                         Text(
                             text = mate.position.shortLabel,
-                            style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.onSurface
+                            style = AppTheme.typography.body.small,
+                            color = AppTheme.colorScheme.onSurface
                         )
                     }
                 }

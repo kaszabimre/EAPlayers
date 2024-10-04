@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -20,16 +19,17 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import io.imrekaszab.eaplayers.domain.model.Player
+import theme.AppTheme
 
 @Composable
 fun PlayerItemView(player: Player, onPlayerClick: (Player) -> Unit) {
     Card(
-        shape = RoundedCornerShape(12.dp),
+        shape = AppTheme.shapes.default.roundedSmall,
         colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surfaceVariant
+            containerColor = AppTheme.colorScheme.surfaceVariant
         ),
         modifier = Modifier
-            .padding(12.dp)
+            .padding(AppTheme.dimens.margin.small)
             .fillMaxWidth()
             .clickable {
                 onPlayerClick(player)
@@ -37,8 +37,8 @@ fun PlayerItemView(player: Player, onPlayerClick: (Player) -> Unit) {
     ) {
         Row(
             modifier = Modifier
-                .background(MaterialTheme.colorScheme.surface)
-                .padding(16.dp),
+                .background(AppTheme.colorScheme.surface)
+                .padding(AppTheme.dimens.margin.default),
             verticalAlignment = Alignment.CenterVertically
         ) {
             AsyncImage(
@@ -46,32 +46,32 @@ fun PlayerItemView(player: Player, onPlayerClick: (Player) -> Unit) {
                 contentDescription = "${player.firstName} ${player.lastName}",
                 modifier = Modifier
                     .size(100.dp)
-                    .padding(end = 16.dp),
+                    .padding(end = AppTheme.dimens.margin.default),
             )
 
             Column(modifier = Modifier.weight(1f)) {
                 Text(
                     text = player.commonName ?: "${player.firstName} ${player.lastName}",
-                    style = MaterialTheme.typography.titleMedium.copy(
+                    style = AppTheme.typography.heading.medium.copy(
                         fontWeight = FontWeight.Bold
                     ),
-                    color = MaterialTheme.colorScheme.onSurface
+                    color = AppTheme.colorScheme.onSurface
                 )
                 Text(
                     text = "Rating: ${player.overallRating}",
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                    style = AppTheme.typography.body.medium,
+                    color = AppTheme.colorScheme.onSurfaceVariant
                 )
                 Text(
                     text = "Position: ${player.position.label}",
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.secondary
+                    style = AppTheme.typography.body.small,
+                    color = AppTheme.colorScheme.secondary
                 )
             }
 
             Surface(
-                shape = RoundedCornerShape(16.dp),
-                color = MaterialTheme.colorScheme.primary,
+                shape = AppTheme.shapes.default.roundedDefault,
+                color = AppTheme.colorScheme.primary,
                 modifier = Modifier.size(50.dp)
             ) {
                 Column(
@@ -81,13 +81,13 @@ fun PlayerItemView(player: Player, onPlayerClick: (Player) -> Unit) {
                 ) {
                     Text(
                         text = "Rank",
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onPrimary,
+                        style = AppTheme.typography.body.small,
+                        color = AppTheme.colorScheme.onPrimary,
                     )
                     Text(
                         text = player.rank.toString(),
-                        color = MaterialTheme.colorScheme.onPrimary,
-                        style = MaterialTheme.typography.titleMedium
+                        color = AppTheme.colorScheme.onPrimary,
+                        style = AppTheme.typography.heading.medium
                     )
                 }
             }

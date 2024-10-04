@@ -19,7 +19,6 @@ import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.SheetState
 import androidx.compose.material3.Switch
@@ -127,14 +126,14 @@ fun Modal(
 ) {
     ModalBottomSheet(
         sheetState = bottomSheetState,
-        containerColor = MaterialTheme.colorScheme.background,
+        containerColor = AppTheme.colorScheme.background,
         onDismissRequest = {
             coroutineScope.launchOnDefault {
                 bottomSheetState.hide()
             }
         }) {
         Column(
-            modifier = Modifier.background(MaterialTheme.colorScheme.background)
+            modifier = Modifier.background(AppTheme.colorScheme.background)
                 .padding(horizontal = 16.dp)
         ) {
             Row(
@@ -146,17 +145,17 @@ fun Modal(
             ) {
                 Text(
                     text = if (isDarkMode) "Dark Mode" else "Light Mode",
-                    style = MaterialTheme.typography.titleLarge,
-                    color = MaterialTheme.colorScheme.onBackground
+                    style = AppTheme.typography.button.medium,
+                    color = AppTheme.colorScheme.onBackground
                 )
                 Switch(
                     checked = isDarkMode,
                     onCheckedChange = { appViewModel.switchDarkMode() },
                     colors = SwitchDefaults.colors(
-                        checkedThumbColor = MaterialTheme.colorScheme.primary,
-                        uncheckedThumbColor = MaterialTheme.colorScheme.onSurface,
-                        checkedTrackColor = MaterialTheme.colorScheme.primaryContainer,
-                        uncheckedTrackColor = MaterialTheme.colorScheme.surfaceVariant
+                        checkedThumbColor = AppTheme.colorScheme.primary,
+                        uncheckedThumbColor = AppTheme.colorScheme.onSurface,
+                        checkedTrackColor = AppTheme.colorScheme.primaryContainer,
+                        uncheckedTrackColor = AppTheme.colorScheme.surfaceVariant
                     )
                 )
             }
@@ -172,19 +171,19 @@ fun ContainerScreen(
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(MaterialTheme.colorScheme.background)
+            .background(AppTheme.colorScheme.background)
     ) {
         content()
         IconButton(
             modifier = Modifier
                 .align(Alignment.BottomCenter).size(40.dp)
                 .clip(RoundedCornerShape(topStart = 8.dp, topEnd = 8.dp))
-                .background(MaterialTheme.colorScheme.primary),
+                .background(AppTheme.colorScheme.primary),
             onClick = onIconClick
         ) {
             Icon(
                 imageVector = Icons.Default.Menu,
-                tint = MaterialTheme.colorScheme.secondary,
+                tint = AppTheme.colorScheme.secondary,
                 contentDescription = null,
             )
         }
