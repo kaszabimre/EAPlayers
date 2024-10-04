@@ -1,0 +1,82 @@
+name: PR job
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - development
+  pull_request:
+    paths-ignore:
+      - "**.md"
+      - "*.png"
+      - docs
+
+jobs:
+  pre-conditions:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v3.13.0
+        with:
+          distribution: corretto
+          java-version: 18
+
+      - name: detekt
+        run: ./gradlew detekt --stacktrace
+
+      - name: GitHub Action for SwiftLint (Only files changed in the PR)
+        uses: norio-nomura/action-swiftlint@3.2.1
+        env:
+          WORKING_DIRECTORY: ./iosApp
+
+  build-android:
+    needs: pre-conditions
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v3.13.0
+        with:
+          distribution: corretto
+          java-version: 18
+
+      - name: Build
+        run: ./gradlew build --stacktrace
+
+  build-ios:
+    needs: pre-conditions
+    runs-on: macos-13
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v3.13.0
+        with:
+          distribution: corretto
+          java-version: 18
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x ./gradlew
+
+      - name: Select Xcode version
+        run: |
+          XCODE_VERSION="15.0"
+          sudo xcode-select -s "/Applications/Xcode_${XCODE_VERSION}.app"
+
+      - name: Build
+        run: |
+          cd iosApp
+          rm -f iosApp.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
+          xcodebuild -resolvePackageDependencies -project iosApp.xcodeproj
+          xcodebuild build-for-testing \
+            -scheme "EAPlayers" \
+            -project iosApp.xcodeproj \
+            -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.4' \
+            -allowProvisioningUpdates
