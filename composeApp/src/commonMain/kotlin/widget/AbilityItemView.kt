@@ -32,7 +32,7 @@ fun AbilityItemView(ability: PlayerAbility) {
         Text(
             text = ability.label,
             style = AppTheme.typography.body.large.copy(fontWeight = FontWeight.Bold),
-            color = AppTheme.colorScheme.onBackground
+            color = AppTheme.colors.yellow.light2
         )
     }
 }
