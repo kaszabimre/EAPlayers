@@ -29,13 +29,14 @@ kotlin {
             baseName = "ComposeApp"
         }
     }
-
     sourceSets {
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
         }
         commonMain.dependencies {
+            implementation(project(":modules:core"))
+            implementation(project(":modules:domain"))
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material3)

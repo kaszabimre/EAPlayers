@@ -25,12 +25,12 @@ fun PlayerStatItem(imageUrl: String, stat: String, label: String) {
         Text(
             text = stat,
             style = AppTheme.typography.body.large,
-            color = AppTheme.colorScheme.onSurface
+            color = AppTheme.colors.yellow.default
         )
         Text(
             text = label,
             style = AppTheme.typography.body.small,
-            color = AppTheme.colorScheme.onSurfaceVariant
+            color = AppTheme.colors.yellow.light1
         )
     }
 }
