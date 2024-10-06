@@ -17,8 +17,8 @@ import eaplayers.composeapp.generated.resources.height
 import eaplayers.composeapp.generated.resources.position
 import eaplayers.composeapp.generated.resources.rating
 import io.imrekaszab.eaplayers.domain.model.Player
+import io.imrekaszab.eaplayers.theme.AppTheme
 import org.jetbrains.compose.resources.stringResource
-import theme.AppTheme
 
 @Composable
 fun PlayerStatsRow(player: Player) {

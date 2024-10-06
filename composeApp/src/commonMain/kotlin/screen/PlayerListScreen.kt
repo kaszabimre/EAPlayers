@@ -23,9 +23,9 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import io.imrekaszab.eaplayers.core.util.collectAsStateInLifecycle
 import io.imrekaszab.eaplayers.core.util.invoke
+import io.imrekaszab.eaplayers.theme.AppTheme
 import io.imrekaszab.eaplayers.viewmodel.PlayerListViewModel
 import navigation.EAPlayersScreens
-import theme.AppTheme
 import widget.PlayerItemView
 
 @Composable

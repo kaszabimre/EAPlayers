@@ -1,4 +1,4 @@
-package theme
+package io.imrekaszab.eaplayers.theme
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box

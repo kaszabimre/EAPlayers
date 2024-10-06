@@ -6,11 +6,11 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import io.imrekaszab.eaplayers.theme.AppTheme
 import io.imrekaszab.eaplayers.viewmodel.PlayerListViewModel
 import org.koin.compose.koinInject
 import screen.PlayerDetailScreen
 import screen.PlayerListScreen
-import theme.AppTheme
 
 private const val ANIMATION_DURATION = 500
 

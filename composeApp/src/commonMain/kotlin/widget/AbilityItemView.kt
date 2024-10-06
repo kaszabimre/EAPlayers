@@ -13,7 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import coil3.compose.AsyncImage
 import io.imrekaszab.eaplayers.domain.model.PlayerAbility
-import theme.AppTheme
+import io.imrekaszab.eaplayers.theme.AppTheme
 
 @Composable
 fun AbilityItemView(ability: PlayerAbility) {

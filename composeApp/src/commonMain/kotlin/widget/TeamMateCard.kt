@@ -23,8 +23,8 @@ import coil3.compose.AsyncImage
 import eaplayers.composeapp.generated.resources.Res
 import eaplayers.composeapp.generated.resources.team_mates
 import io.imrekaszab.eaplayers.domain.model.Player
+import io.imrekaszab.eaplayers.theme.AppTheme
 import org.jetbrains.compose.resources.stringResource
-import theme.AppTheme
 
 @Composable
 fun TeamMatesSection(player: Player, onTeamMateSelected: (Player) -> Unit) {

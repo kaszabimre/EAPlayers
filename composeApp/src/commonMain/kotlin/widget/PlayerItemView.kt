@@ -24,8 +24,8 @@ import eaplayers.composeapp.generated.resources.position_with_param
 import eaplayers.composeapp.generated.resources.rank
 import eaplayers.composeapp.generated.resources.rating_with_param
 import io.imrekaszab.eaplayers.domain.model.Player
+import io.imrekaszab.eaplayers.theme.AppTheme
 import org.jetbrains.compose.resources.stringResource
-import theme.AppTheme
 
 @Composable
 fun PlayerItemView(player: Player, onPlayerClick: (Player) -> Unit) {

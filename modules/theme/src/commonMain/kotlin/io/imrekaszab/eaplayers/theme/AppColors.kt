@@ -1,4 +1,4 @@
-package theme
+package io.imrekaszab.eaplayers.theme
 
 import androidx.compose.foundation.text.selection.LocalTextSelectionColors
 import androidx.compose.foundation.text.selection.TextSelectionColors
