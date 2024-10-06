@@ -42,8 +42,6 @@ kotlin {
             implementation(libs.ktor.client.ios)
         }
         commonMain.dependencies {
-            implementation(project(":modules:core"))
-            implementation(project(":modules:domain"))
             // Logging
             implementation(libs.log.kermit)
             implementation(libs.log.slf4j)
@@ -62,6 +60,10 @@ kotlin {
             implementation(libs.ktor.content.negotiation)
             implementation(libs.ktor.serialization)
             implementation(libs.kotlinx.coroutines.core)
+
+            // Modules
+            implementation(projects.modules.core)
+            implementation(projects.modules.domain)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)

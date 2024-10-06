@@ -1,4 +1,4 @@
-package theme
+package io.imrekaszab.eaplayers.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.text.selection.LocalTextSelectionColors
@@ -68,7 +68,13 @@ object AppTheme {
         @ReadOnlyComposable
         get() {
             val darkTheme = isSystemInDarkTheme()
-            return if (darkTheme) getDarkColors(LocalAppColors.current) else getLightColors(LocalAppColors.current)
+            return if (darkTheme) {
+                getDarkColors(LocalAppColors.current)
+            } else {
+                getLightColors(
+                    LocalAppColors.current
+                )
+            }
         }
     val shapes: AppShapes
         @Composable
