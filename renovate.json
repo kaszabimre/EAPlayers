@@ -1,0 +1,22 @@
+{
+  "extends": [
+    "config:base"
+  ],
+  "baseBranches": ["development"],
+  "packageRules": [
+    {
+      "matchPaths": ["**/libs.versions.toml"],
+      "groupName": "TOML version catalog updates",
+      "automerge": false
+    },
+    {
+      "matchPaths": [".github/workflows/*.yml"],
+      "groupName": "GitHub Actions updates",
+      "matchManagers": ["github-actions"],
+      "automerge": false
+    }
+  ],
+  "schedule": ["at any time"],
+  "automerge": false,
+  "labels": ["dependency-update"]
+}
