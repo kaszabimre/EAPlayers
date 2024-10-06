@@ -1,4 +1,4 @@
-package theme
+package io.imrekaszab.eaplayers.theme
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape

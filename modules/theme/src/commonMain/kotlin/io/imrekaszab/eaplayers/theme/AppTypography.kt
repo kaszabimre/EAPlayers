@@ -1,4 +1,4 @@
-package theme
+package io.imrekaszab.eaplayers.theme
 
 import androidx.compose.material3.ColorScheme
 import androidx.compose.runtime.Composable
@@ -9,13 +9,13 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.em
-import eaplayers.composeapp.generated.resources.Poppins_Black
-import eaplayers.composeapp.generated.resources.Poppins_Bold
-import eaplayers.composeapp.generated.resources.Poppins_Light
-import eaplayers.composeapp.generated.resources.Poppins_Medium
-import eaplayers.composeapp.generated.resources.Poppins_Regular
-import eaplayers.composeapp.generated.resources.Poppins_SemiBold
-import eaplayers.composeapp.generated.resources.Res
+import eaplayers.modules.theme.generated.resources.Poppins_Black
+import eaplayers.modules.theme.generated.resources.Poppins_Bold
+import eaplayers.modules.theme.generated.resources.Poppins_Light
+import eaplayers.modules.theme.generated.resources.Poppins_Medium
+import eaplayers.modules.theme.generated.resources.Poppins_Regular
+import eaplayers.modules.theme.generated.resources.Poppins_SemiBold
+import eaplayers.modules.theme.generated.resources.Res
 import org.jetbrains.compose.resources.Font
 
 @Composable

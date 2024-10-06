@@ -11,7 +11,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import coil3.compose.AsyncImage
-import theme.AppTheme
+import io.imrekaszab.eaplayers.theme.AppTheme
 
 @Composable
 fun PlayerStatItem(imageUrl: String, stat: String, label: String) {

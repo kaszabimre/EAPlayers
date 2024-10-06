@@ -35,8 +35,6 @@ kotlin {
             implementation(libs.androidx.activity.compose)
         }
         commonMain.dependencies {
-            implementation(project(":modules:core"))
-            implementation(project(":modules:domain"))
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material3)
@@ -56,7 +54,11 @@ kotlin {
             implementation(libs.coil.mp)
             implementation(libs.coil.network.ktor)
 
+            // Modules
             implementation(projects.shared)
+            implementation(projects.modules.core)
+            implementation(projects.modules.domain)
+            implementation(projects.modules.theme)
         }
     }
 }

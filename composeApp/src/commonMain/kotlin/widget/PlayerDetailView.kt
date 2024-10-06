@@ -21,8 +21,8 @@ import eaplayers.composeapp.generated.resources.nationality
 import eaplayers.composeapp.generated.resources.player_rank
 import eaplayers.composeapp.generated.resources.team
 import io.imrekaszab.eaplayers.domain.model.Player
+import io.imrekaszab.eaplayers.theme.AppTheme
 import org.jetbrains.compose.resources.stringResource
-import theme.AppTheme
 
 @Composable
 fun PlayerDetailView(
