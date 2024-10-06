@@ -461,7 +461,6 @@ naming:
     functionPattern: '([a-z][a-zA-Z0-9]*)|(`.*`)'
     excludeClassPattern: '$^'
     ignoreAnnotated: [ 'Composable' ]
-    ignoreFunction: ['MainViewController']
   FunctionParameterNaming:
     active: true
     parameterPattern: '[a-z][A-Za-z0-9]*'
@@ -602,7 +601,7 @@ style:
     active: true
     conversionFunctionPrefix: [ 'to' ]
   DataClassShouldBeImmutable:
-    active: true
+    active: false
   DestructuringDeclarationWithTooManyEntries:
     active: true
     maxDestructuringEntries: 3

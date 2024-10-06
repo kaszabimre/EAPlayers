@@ -26,3 +26,6 @@ dependencyResolutionManagement {
 rootProject.name = "EAPlayers"
 include(":composeApp")
 include(":shared")
+include(":modules:core")
+include(":modules:domain")
+include(":modules:theme")

@@ -5,14 +5,13 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
+import io.imrekaszab.eaplayers.theme.AppTheme
 
 @Composable
 fun PlayerStatItem(imageUrl: String, stat: String, label: String) {
@@ -20,18 +19,18 @@ fun PlayerStatItem(imageUrl: String, stat: String, label: String) {
         AsyncImage(
             model = imageUrl,
             contentDescription = label,
-            modifier = Modifier.size(32.dp)
+            modifier = Modifier.size(AppTheme.dimens.imageSize.playerStatItemIconSize)
         )
-        Spacer(modifier = Modifier.height(8.dp))
+        Spacer(modifier = Modifier.height(AppTheme.dimens.margin.tiny))
         Text(
             text = stat,
-            style = MaterialTheme.typography.bodyLarge,
-            color = MaterialTheme.colorScheme.onSurface
+            style = AppTheme.typography.body.large,
+            color = AppTheme.colors.yellow.default
         )
         Text(
             text = label,
-            style = MaterialTheme.typography.bodySmall,
-            color = MaterialTheme.colorScheme.onSurfaceVariant
+            style = AppTheme.typography.body.small,
+            color = AppTheme.colors.yellow.light1
         )
     }
 }
@@ -42,19 +41,19 @@ fun PlayerStatItem(icon: ImageVector, stat: String, label: String) {
         Icon(
             imageVector = icon,
             contentDescription = label,
-            tint = MaterialTheme.colorScheme.primary,
-            modifier = Modifier.size(32.dp)
+            tint = AppTheme.colorScheme.primary,
+            modifier = Modifier.size(AppTheme.dimens.imageSize.playerStatItemIconSize)
         )
-        Spacer(modifier = Modifier.height(8.dp))
+        Spacer(modifier = Modifier.height(AppTheme.dimens.margin.tiny))
         Text(
             text = stat,
-            style = MaterialTheme.typography.bodyLarge,
-            color = MaterialTheme.colorScheme.onSurface
+            style = AppTheme.typography.body.large,
+            color = AppTheme.colorScheme.onSurface
         )
         Text(
             text = label,
-            style = MaterialTheme.typography.bodySmall,
-            color = MaterialTheme.colorScheme.onSurfaceVariant
+            style = AppTheme.typography.body.small,
+            color = AppTheme.colorScheme.onSurfaceVariant
         )
     }
 }

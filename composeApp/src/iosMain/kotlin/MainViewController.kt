@@ -1,4 +1,4 @@
-@file:Suppress("MissingPackageDeclaration")
+@file:Suppress("MissingPackageDeclaration", "FunctionNaming")
 import androidx.compose.ui.window.ComposeUIViewController
 import navigation.Navigation
 

@@ -1,0 +1,14 @@
+<resources>
+    <string name="abilities">Abilities</string>
+    <string name="rating">Rating</string>
+    <string name="position">Position</string>
+    <string name="height">Height</string>
+    <string name="team_mates">Team mates</string>
+    <string name="player_rank">Rank: %1$s</string>
+    <string name="nationality">Nationality</string>
+    <string name="team">Team</string>
+    <string name="rank">Rank</string>
+    <string name="rating_with_param">Rating: %1$s</string>
+    <string name="position_with_param">Position: %1$s</string>
+    <string name="player_image_desc">%1$s %2$s's image</string>
+</resources>

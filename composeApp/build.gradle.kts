@@ -29,7 +29,6 @@ kotlin {
             baseName = "ComposeApp"
         }
     }
-
     sourceSets {
         androidMain.dependencies {
             implementation(compose.preview)
@@ -48,14 +47,18 @@ kotlin {
             implementation(libs.ktor.client.core)
             implementation(libs.koin.core)
             implementation(libs.koin.compose.multiplatform)
-            implementation("co.touchlab:stately-common:2.0.5")
+            implementation(libs.stately.common)
 
             implementation(libs.coil.compose.core)
             implementation(libs.coil.compose)
             implementation(libs.coil.mp)
             implementation(libs.coil.network.ktor)
 
+            // Modules
             implementation(projects.shared)
+            implementation(projects.modules.core)
+            implementation(projects.modules.domain)
+            implementation(projects.modules.theme)
         }
     }
 }
@@ -96,6 +99,7 @@ android {
         buildConfig = true
     }
     dependencies {
+        implementation(libs.androidx.compose.material)
         implementation(libs.kotlinx.coroutines.android)
         debugImplementation(compose.uiTooling)
         implementation(libs.compose.ui)
