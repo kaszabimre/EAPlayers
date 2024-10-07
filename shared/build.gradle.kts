@@ -62,6 +62,8 @@ kotlin {
             implementation(libs.kotlinx.coroutines.core)
 
             // Modules
+            implementation(projects.features.list.view)
+            implementation(projects.features.list.viewmodel)
             implementation(projects.modules.core)
             implementation(projects.modules.domain)
         }
