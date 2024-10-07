@@ -9,9 +9,9 @@ import androidx.navigation.compose.rememberNavController
 import io.imrekaszab.eaplayers.theme.AppTheme
 import io.imrekaszab.eaplayers.theme.navigation.EAPlayersScreens
 import io.imrekaszab.eaplayers.ui.viewmodel.PlayerListViewModel
+import io.imrekaszab.eaplayers.view.PlayerDetailScreen
 import io.imrekaszab.eaplayers.view.PlayerListScreen
 import org.koin.compose.koinInject
-import screen.PlayerDetailScreen
 
 private const val ANIMATION_DURATION = 500
 
