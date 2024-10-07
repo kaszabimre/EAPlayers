@@ -1,4 +1,4 @@
-package widget
+package io.imrekaszab.eaplayers.view
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -18,11 +18,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import coil3.compose.AsyncImage
-import eaplayers.composeapp.generated.resources.Res
-import eaplayers.composeapp.generated.resources.player_image_desc
-import eaplayers.composeapp.generated.resources.position_with_param
-import eaplayers.composeapp.generated.resources.rank
-import eaplayers.composeapp.generated.resources.rating_with_param
+import eaplayers.features.list.view.generated.resources.Res
+import eaplayers.features.list.view.generated.resources.player_image_desc
+import eaplayers.features.list.view.generated.resources.position_with_param
+import eaplayers.features.list.view.generated.resources.rank
+import eaplayers.features.list.view.generated.resources.rating_with_param
 import io.imrekaszab.eaplayers.domain.model.Player
 import io.imrekaszab.eaplayers.theme.AppTheme
 import org.jetbrains.compose.resources.stringResource

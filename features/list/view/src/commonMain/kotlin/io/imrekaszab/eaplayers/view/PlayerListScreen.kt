@@ -1,4 +1,4 @@
-package screen
+package io.imrekaszab.eaplayers.view
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -24,9 +24,8 @@ import androidx.navigation.NavHostController
 import io.imrekaszab.eaplayers.core.util.collectAsStateInLifecycle
 import io.imrekaszab.eaplayers.core.util.invoke
 import io.imrekaszab.eaplayers.theme.AppTheme
-import io.imrekaszab.eaplayers.viewmodel.PlayerListViewModel
-import navigation.EAPlayersScreens
-import widget.PlayerItemView
+import io.imrekaszab.eaplayers.theme.navigation.EAPlayersScreens
+import io.imrekaszab.eaplayers.ui.viewmodel.PlayerListViewModel
 
 @Composable
 fun PlayerListScreen(

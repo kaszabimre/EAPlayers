@@ -55,6 +55,8 @@ kotlin {
             implementation(libs.coil.network.ktor)
 
             // Modules
+            implementation(projects.features.list.view)
+            implementation(projects.features.list.viewmodel)
             implementation(projects.shared)
             implementation(projects.modules.core)
             implementation(projects.modules.domain)

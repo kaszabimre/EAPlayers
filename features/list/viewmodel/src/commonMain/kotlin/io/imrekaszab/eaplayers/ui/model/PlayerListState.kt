@@ -1,4 +1,4 @@
-package io.imrekaszab.eaplayers
+package io.imrekaszab.eaplayers.ui.model
 
 import io.imrekaszab.eaplayers.domain.model.Player
 

@@ -1,4 +1,4 @@
-package navigation
+package io.imrekaszab.eaplayers.theme.navigation
 
 sealed class EAPlayersScreens(val route: String) {
     data object ListScreen : EAPlayersScreens("list_screen")
