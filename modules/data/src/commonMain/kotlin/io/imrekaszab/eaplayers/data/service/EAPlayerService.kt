@@ -1,10 +1,10 @@
-package io.imrekaszab.eaplayers.domain.service
+package io.imrekaszab.eaplayers.data.service
 
+import io.imrekaszab.eaplayers.data.api.PlayerApi
+import io.imrekaszab.eaplayers.data.mapper.toPlayer
 import io.imrekaszab.eaplayers.domain.action.EAPlayerAction
 import io.imrekaszab.eaplayers.domain.model.Player
-import io.imrekaszab.eaplayers.domain.model.toPlayer
 import io.imrekaszab.eaplayers.domain.store.EAPlayerStore
-import io.imrekaszab.eaplayers.network.PlayerApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow

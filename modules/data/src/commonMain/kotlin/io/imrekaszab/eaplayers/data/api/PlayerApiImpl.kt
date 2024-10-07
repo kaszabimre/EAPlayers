@@ -1,6 +1,6 @@
-package io.imrekaszab.eaplayers.network
+package io.imrekaszab.eaplayers.data.api
 
-import io.imrekaszab.eaplayers.model.PlayersResponse
+import io.imrekaszab.eaplayers.data.model.PlayersResponse
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.get

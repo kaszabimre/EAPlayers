@@ -1,11 +1,17 @@
-package io.imrekaszab.eaplayers.domain.model
+package io.imrekaszab.eaplayers.data.mapper
 
-import io.imrekaszab.eaplayers.model.AbilityTypeApiModel
-import io.imrekaszab.eaplayers.model.NationalityApiModel
-import io.imrekaszab.eaplayers.model.PlayerAbilityApiModel
-import io.imrekaszab.eaplayers.model.PlayerApiModel
-import io.imrekaszab.eaplayers.model.PositionApiModel
-import io.imrekaszab.eaplayers.model.TeamApiModel
+import io.imrekaszab.eaplayers.data.model.AbilityTypeApiModel
+import io.imrekaszab.eaplayers.data.model.NationalityApiModel
+import io.imrekaszab.eaplayers.data.model.PlayerAbilityApiModel
+import io.imrekaszab.eaplayers.data.model.PlayerApiModel
+import io.imrekaszab.eaplayers.data.model.PositionApiModel
+import io.imrekaszab.eaplayers.data.model.TeamApiModel
+import io.imrekaszab.eaplayers.domain.model.AbilityType
+import io.imrekaszab.eaplayers.domain.model.Nationality
+import io.imrekaszab.eaplayers.domain.model.Player
+import io.imrekaszab.eaplayers.domain.model.PlayerAbility
+import io.imrekaszab.eaplayers.domain.model.Position
+import io.imrekaszab.eaplayers.domain.model.Team
 
 fun PlayerApiModel.toPlayer() = Player(
     id = this.id,
