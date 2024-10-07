@@ -16,8 +16,8 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import io.imrekaszab.eaplayers.core.util.invoke
 import io.imrekaszab.eaplayers.theme.AppTheme
+import io.imrekaszab.eaplayers.theme.navigation.EAPlayersScreens
 import io.imrekaszab.eaplayers.viewmodel.PlayerDetailViewModel
-import navigation.EAPlayersScreens
 import org.koin.compose.koinInject
 import widget.PlayerDetailView
 
