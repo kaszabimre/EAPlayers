@@ -1,4 +1,4 @@
-package widget
+package io.imrekaszab.eaplayers.view
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -20,8 +20,8 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import coil3.compose.AsyncImage
-import eaplayers.composeapp.generated.resources.Res
-import eaplayers.composeapp.generated.resources.team_mates
+import eaplayers.features.details.view.generated.resources.Res
+import eaplayers.features.details.view.generated.resources.team_mates
 import io.imrekaszab.eaplayers.domain.model.Player
 import io.imrekaszab.eaplayers.theme.AppTheme
 import org.jetbrains.compose.resources.stringResource

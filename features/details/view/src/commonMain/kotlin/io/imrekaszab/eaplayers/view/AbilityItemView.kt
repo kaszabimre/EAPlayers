@@ -1,4 +1,4 @@
-package widget
+package io.imrekaszab.eaplayers.view
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer

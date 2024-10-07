@@ -1,4 +1,4 @@
-package widget
+package io.imrekaszab.eaplayers.view
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -12,10 +12,10 @@ import androidx.compose.material.icons.filled.Star
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import eaplayers.composeapp.generated.resources.Res
-import eaplayers.composeapp.generated.resources.height
-import eaplayers.composeapp.generated.resources.position
-import eaplayers.composeapp.generated.resources.rating
+import eaplayers.features.details.view.generated.resources.Res
+import eaplayers.features.details.view.generated.resources.height
+import eaplayers.features.details.view.generated.resources.position
+import eaplayers.features.details.view.generated.resources.rating
 import io.imrekaszab.eaplayers.domain.model.Player
 import io.imrekaszab.eaplayers.theme.AppTheme
 import org.jetbrains.compose.resources.stringResource

@@ -1,4 +1,4 @@
-package widget
+package io.imrekaszab.eaplayers.view
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
