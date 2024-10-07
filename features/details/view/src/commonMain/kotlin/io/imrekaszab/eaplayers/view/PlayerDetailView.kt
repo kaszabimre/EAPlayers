@@ -1,4 +1,4 @@
-package widget
+package io.imrekaszab.eaplayers.view
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -15,11 +15,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.style.TextAlign
-import eaplayers.composeapp.generated.resources.Res
-import eaplayers.composeapp.generated.resources.abilities
-import eaplayers.composeapp.generated.resources.nationality
-import eaplayers.composeapp.generated.resources.player_rank
-import eaplayers.composeapp.generated.resources.team
+import eaplayers.features.details.view.generated.resources.Res
+import eaplayers.features.details.view.generated.resources.abilities
+import eaplayers.features.details.view.generated.resources.nationality
+import eaplayers.features.details.view.generated.resources.player_rank
+import eaplayers.features.details.view.generated.resources.team
 import io.imrekaszab.eaplayers.domain.model.Player
 import io.imrekaszab.eaplayers.theme.AppTheme
 import org.jetbrains.compose.resources.stringResource

@@ -1,4 +1,4 @@
-package widget
+package io.imrekaszab.eaplayers.view
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -10,8 +10,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import coil3.compose.AsyncImage
-import eaplayers.composeapp.generated.resources.Res
-import eaplayers.composeapp.generated.resources.player_image_desc
+import eaplayers.features.details.view.generated.resources.Res
+import eaplayers.features.details.view.generated.resources.player_rank
 import io.imrekaszab.eaplayers.domain.model.Player
 import io.imrekaszab.eaplayers.theme.AppTheme
 import org.jetbrains.compose.resources.stringResource
@@ -29,7 +29,7 @@ fun PlayerImage(player: Player) {
         AsyncImage(
             model = player.shieldUrl,
             contentDescription = stringResource(
-                Res.string.player_image_desc,
+                Res.string.player_rank,
                 player.firstName,
                 player.lastName
             ),

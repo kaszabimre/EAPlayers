@@ -1,4 +1,4 @@
-package screen
+package io.imrekaszab.eaplayers.view
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
@@ -17,9 +17,8 @@ import androidx.navigation.NavHostController
 import io.imrekaszab.eaplayers.core.util.invoke
 import io.imrekaszab.eaplayers.theme.AppTheme
 import io.imrekaszab.eaplayers.theme.navigation.EAPlayersScreens
-import io.imrekaszab.eaplayers.viewmodel.PlayerDetailViewModel
+import io.imrekaszab.eaplayers.ui.viewmodel.PlayerDetailViewModel
 import org.koin.compose.koinInject
-import widget.PlayerDetailView
 
 @Composable
 fun PlayerDetailScreen(

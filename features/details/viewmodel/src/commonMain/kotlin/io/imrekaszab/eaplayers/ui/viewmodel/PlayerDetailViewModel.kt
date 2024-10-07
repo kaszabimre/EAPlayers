@@ -1,13 +1,13 @@
-package io.imrekaszab.eaplayers.viewmodel
+package io.imrekaszab.eaplayers.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import io.imrekaszab.eaplayers.PlayerDetailState
 import io.imrekaszab.eaplayers.core.command.execute
 import io.imrekaszab.eaplayers.core.util.command
 import io.imrekaszab.eaplayers.domain.action.EAPlayerAction
 import io.imrekaszab.eaplayers.domain.model.Player
 import io.imrekaszab.eaplayers.domain.store.EAPlayerStore
+import io.imrekaszab.eaplayers.ui.model.PlayerDetailState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
