@@ -65,6 +65,7 @@ kotlin {
             implementation(projects.features.list.view)
             implementation(projects.features.list.viewmodel)
             implementation(projects.modules.core)
+            implementation(projects.modules.data)
             implementation(projects.modules.domain)
         }
         commonTest.dependencies {

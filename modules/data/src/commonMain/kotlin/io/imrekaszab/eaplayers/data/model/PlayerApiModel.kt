@@ -1,4 +1,4 @@
-package io.imrekaszab.eaplayers.model
+package io.imrekaszab.eaplayers.data.model
 
 import kotlinx.serialization.Serializable
 
