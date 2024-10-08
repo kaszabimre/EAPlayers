@@ -1,7 +1,6 @@
 @file:Suppress("MissingPackageDeclaration")
+
 import co.touchlab.kermit.Logger
-import io.imrekaszab.eaplayers.di.initKoin
-import io.ktor.client.engine.darwin.Darwin
 import kotlinx.cinterop.BetaInteropApi
 import kotlinx.cinterop.ObjCClass
 import kotlinx.cinterop.ObjCProtocol
@@ -9,18 +8,10 @@ import kotlinx.cinterop.getOriginalKotlinClass
 import org.koin.core.Koin
 import org.koin.core.KoinApplication
 import org.koin.core.parameter.parametersOf
-import org.koin.dsl.module
 
 fun initKoinIos(
-    doOnStartup: () -> Unit,
     baseUrl: String
-): KoinApplication = initKoin(
-    module {
-        single { doOnStartup }
-        single { Darwin.create() }
-    },
-    baseUrl
-)
+): KoinApplication = io.imrekaszab.eaplayers.di.initKoinIos(baseUrl = baseUrl)
 
 // Access from Swift to create a logger
 @Suppress("unused")

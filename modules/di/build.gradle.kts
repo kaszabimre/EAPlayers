@@ -4,7 +4,6 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
-    alias(libs.plugins.kotlinSerialization)
 }
 
 kotlin {
@@ -20,11 +19,37 @@ kotlin {
     iosSimulatorArm64()
 
     sourceSets {
+        androidMain.dependencies {
+            implementation(libs.koin.compose)
+            implementation(libs.koin.android)
+            implementation(libs.ktor.client.android)
+        }
         commonMain.dependencies {
-            implementation(libs.kotlinx.coroutines.core)
+
+            // Logging
+            implementation(libs.log.kermit)
+            implementation(libs.log.slf4j)
+
+            // DI
+            implementation(libs.koin.core)
+
+            // Network
             implementation(libs.ktor.client.core)
+            implementation(libs.ktor.logging)
+            implementation(libs.ktor.content.negotiation)
             implementation(libs.ktor.serialization)
+
+            // Modules
+            implementation(projects.features.details.view)
+            implementation(projects.features.details.viewmodel)
+            implementation(projects.features.list.view)
+            implementation(projects.features.list.viewmodel)
+            implementation(projects.modules.core)
+            implementation(projects.modules.data)
             implementation(projects.modules.domain)
+        }
+        iosMain.dependencies {
+            implementation(libs.ktor.client.ios)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
@@ -33,7 +58,7 @@ kotlin {
 }
 
 android {
-    namespace = "io.imrekaszab.eaplayers.data"
+    namespace = "io.imrekaszab.eaplayers.di"
 
     compileSdk = libs.versions.targetSdk.get().toInt()
     defaultConfig {
