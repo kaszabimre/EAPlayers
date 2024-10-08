@@ -58,7 +58,6 @@ kotlin {
             implementation(projects.features.details.viewmodel)
             implementation(projects.features.list.view)
             implementation(projects.features.list.viewmodel)
-            implementation(projects.shared)
             implementation(projects.modules.core)
             implementation(projects.modules.di)
             implementation(projects.modules.domain)

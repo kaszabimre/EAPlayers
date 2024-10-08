@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="common_communication_error">common_communication_error</string>
-    <string name="common_unknown_error">Unknown error!</string>
-    <string name="common_unknown_error_code">Unknown error! (%1$s)</string>
-    <string name="common_network_error_title">Internet connection lost</string>
-    <string name="common_network_error_text">Please check your internet connection and try again.</string>
-</resources>
