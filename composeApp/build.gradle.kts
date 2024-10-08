@@ -44,7 +44,6 @@ kotlin {
             implementation(libs.compose.navigation)
             implementation(libs.compose.multiplatform.ui)
 
-            implementation(libs.ktor.client.core)
             implementation(libs.koin.core)
             implementation(libs.koin.compose.multiplatform)
             implementation(libs.stately.common)
@@ -61,6 +60,7 @@ kotlin {
             implementation(projects.features.list.viewmodel)
             implementation(projects.shared)
             implementation(projects.modules.core)
+            implementation(projects.modules.di)
             implementation(projects.modules.domain)
             implementation(projects.modules.theme)
         }
