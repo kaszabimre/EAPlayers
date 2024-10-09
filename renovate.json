@@ -1,5 +1,6 @@
 {
   "extends": ["config:recommended"],
+  "baseBranches": ["development"],
   "packageRules": [
     {
       "matchFileNames": ["**/libs.versions.toml"],
