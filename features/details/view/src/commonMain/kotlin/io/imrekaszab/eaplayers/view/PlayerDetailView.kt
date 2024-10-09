@@ -93,16 +93,16 @@ fun PlayerInfoSection(player: Player) {
 
 @Composable
 fun AbilitiesSection(player: Player) {
-    Column(
-        modifier = Modifier
-            .clip(AppTheme.shapes.default.roundedDefault)
-            .background(
-                color = AppTheme.colors.blue.default,
-                shape = AppTheme.shapes.default.roundedDefault
-            )
-            .padding(AppTheme.dimens.margin.default)
-    ) {
-        if (player.playerAbilities.isNotEmpty()) {
+    if (player.playerAbilities.isNotEmpty()) {
+        Column(
+            modifier = Modifier
+                .clip(AppTheme.shapes.default.roundedDefault)
+                .background(
+                    color = AppTheme.colors.blue.default,
+                    shape = AppTheme.shapes.default.roundedDefault
+                )
+                .padding(AppTheme.dimens.margin.default)
+        ) {
             Text(
                 text = stringResource(Res.string.abilities),
                 style = AppTheme.typography.heading.medium,

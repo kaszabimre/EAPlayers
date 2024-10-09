@@ -1,6 +1,0 @@
-<resources>
-    <string name="rank">Rank</string>
-    <string name="rating_with_param">Rating: %1$s</string>
-    <string name="position_with_param">Position: %1$s</string>
-    <string name="player_image_desc">%1$s %2$s's image</string>
-</resources>

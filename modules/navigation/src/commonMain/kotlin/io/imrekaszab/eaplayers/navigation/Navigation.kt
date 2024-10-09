@@ -1,4 +1,4 @@
-package navigation
+package io.imrekaszab.eaplayers.navigation
 
 import androidx.compose.animation.AnimatedContentTransitionScope
 import androidx.compose.animation.core.tween
@@ -8,18 +8,14 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import io.imrekaszab.eaplayers.theme.AppTheme
 import io.imrekaszab.eaplayers.theme.navigation.EAPlayersScreens
-import io.imrekaszab.eaplayers.ui.viewmodel.PlayerListViewModel
 import io.imrekaszab.eaplayers.view.PlayerDetailScreen
 import io.imrekaszab.eaplayers.view.PlayerListScreen
-import org.koin.compose.koinInject
 
 private const val ANIMATION_DURATION = 500
 
 @Composable
 fun Navigation() {
     val navController = rememberNavController()
-    val listviewModel: PlayerListViewModel = koinInject<PlayerListViewModel>()
-
     AppTheme(
         content = {
             NavHost(
@@ -51,10 +47,7 @@ fun Navigation() {
                 }
             ) {
                 composable(EAPlayersScreens.ListScreen.route) {
-                    PlayerListScreen(
-                        navHostController = navController,
-                        viewModel = listviewModel
-                    )
+                    PlayerListScreen(navHostController = navController)
                 }
                 composable(route = EAPlayersScreens.DetailsScreen.route) {
                     PlayerDetailScreen(navController)

@@ -5,5 +5,4 @@ import kotlinx.coroutines.flow.Flow
 
 interface EAPlayerStore {
     fun getPlayerList(): Flow<List<Player>>
-    fun isDarkModeActive(): Flow<Boolean>
 }
