@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.text.selection.LocalTextSelectionColors
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
@@ -18,7 +17,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import io.imrekaszab.eaplayers.core.util.collectAsStateInLifecycle
@@ -26,6 +24,7 @@ import io.imrekaszab.eaplayers.core.util.invoke
 import io.imrekaszab.eaplayers.core.viewmodel.koinViewModel
 import io.imrekaszab.eaplayers.theme.AppTheme
 import io.imrekaszab.eaplayers.theme.navigation.EAPlayersScreens
+import io.imrekaszab.eaplayers.theme.widgets.LoadingIndicator
 import io.imrekaszab.eaplayers.ui.viewmodel.PlayerListViewModel
 
 @Composable
@@ -69,18 +68,7 @@ fun PlayerListScreen(
             }
 
             if (uiState.loading) {
-                item {
-                    Box(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .background(AppTheme.colorScheme.background)
-                    ) {
-                        CircularProgressIndicator(
-                            modifier = Modifier.align(Alignment.Center),
-                            color = AppTheme.colorScheme.onPrimary
-                        )
-                    }
-                }
+                item { LoadingIndicator(modifier = Modifier.fillMaxSize()) }
             } else {
                 items(uiState.players) { player ->
                     PlayerItemView(
