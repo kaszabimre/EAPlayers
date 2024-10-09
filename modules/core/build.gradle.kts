@@ -34,6 +34,9 @@ kotlin {
             implementation(libs.compose.multiplatform.ui)
 
             implementation(libs.kotlinx.coroutines.core)
+
+            // DI
+            implementation(libs.koin.compose.multiplatform)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)

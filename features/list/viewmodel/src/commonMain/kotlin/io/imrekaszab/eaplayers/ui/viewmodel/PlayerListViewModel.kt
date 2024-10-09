@@ -1,12 +1,8 @@
 package io.imrekaszab.eaplayers.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import io.imrekaszab.eaplayers.core.util.command
-import io.imrekaszab.eaplayers.core.util.invoke
-import io.imrekaszab.eaplayers.core.util.launchOnDefault
 import io.imrekaszab.eaplayers.domain.action.EAPlayerAction
-import io.imrekaszab.eaplayers.domain.model.Player
 import io.imrekaszab.eaplayers.domain.store.EAPlayerStore
 import io.imrekaszab.eaplayers.ui.model.PlayerListState
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -20,7 +16,7 @@ class PlayerListViewModel(eaPlayerAction: EAPlayerAction, eaPlayerStore: EAPlaye
     val uiState: StateFlow<PlayerListState> = _uiState.asStateFlow()
 
     val refreshPlayers = command { textFieldValue: String ->
-        if (textFieldValue.length > 2) {
+        if (textFieldValue.isNotEmpty()) {
             _uiState.emit(uiState.first().copy(loading = true))
             eaPlayerAction.refreshPlayers(search = textFieldValue)
         } else if (textFieldValue.isEmpty()) {
@@ -35,15 +31,5 @@ class PlayerListViewModel(eaPlayerAction: EAPlayerAction, eaPlayerStore: EAPlaye
                 loading = false
             )
         )
-    }
-
-    val selectPlayer = command { player: Player ->
-        eaPlayerAction.selectPlayer(player)
-    }
-
-    init {
-        viewModelScope.launchOnDefault {
-            refreshPlayers(uiState.value.textFieldValue)
-        }
     }
 }
