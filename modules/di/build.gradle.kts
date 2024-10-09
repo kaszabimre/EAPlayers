@@ -47,6 +47,7 @@ kotlin {
             implementation(projects.modules.core)
             implementation(projects.modules.data)
             implementation(projects.modules.domain)
+            implementation(projects.modules.logger)
         }
         iosMain.dependencies {
             implementation(libs.ktor.client.ios)
