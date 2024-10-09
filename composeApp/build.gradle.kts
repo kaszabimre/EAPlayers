@@ -61,6 +61,7 @@ kotlin {
             implementation(projects.modules.core)
             implementation(projects.modules.di)
             implementation(projects.modules.domain)
+            implementation(projects.modules.navigation)
             implementation(projects.modules.theme)
         }
     }

@@ -23,13 +23,14 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import io.imrekaszab.eaplayers.core.util.collectAsStateInLifecycle
 import io.imrekaszab.eaplayers.core.util.invoke
+import io.imrekaszab.eaplayers.core.viewmodel.koinViewModel
 import io.imrekaszab.eaplayers.theme.AppTheme
 import io.imrekaszab.eaplayers.theme.navigation.EAPlayersScreens
 import io.imrekaszab.eaplayers.ui.viewmodel.PlayerListViewModel
 
 @Composable
 fun PlayerListScreen(
-    viewModel: PlayerListViewModel,
+    viewModel: PlayerListViewModel = koinViewModel<PlayerListViewModel>(),
     navHostController: NavHostController
 ) {
     val uiState by viewModel.uiState.collectAsStateInLifecycle()
@@ -37,9 +38,10 @@ fun PlayerListScreen(
     var searchQuery by remember { mutableStateOf(viewModel.uiState.value.textFieldValue) }
 
     LaunchedEffect(searchQuery) {
-        viewModel.refreshPlayers(searchQuery)
+        if (searchQuery.isEmpty()) {
+            viewModel.refreshPlayers("")
+        }
     }
-
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -56,7 +58,12 @@ fun PlayerListScreen(
                         .padding(AppTheme.dimens.margin.tiny),
                     value = searchQuery,
                     textStyle = AppTheme.typography.body.medium,
-                    onValueChange = { searchQuery = it },
+                    onValueChange = { value: String ->
+                        searchQuery = value
+                        if (value.isNotEmpty()) {
+                            viewModel.refreshPlayers(value)
+                        }
+                    },
                     colors = textFieldColors()
                 )
             }
@@ -79,7 +86,6 @@ fun PlayerListScreen(
                     PlayerItemView(
                         player = player,
                         onPlayerClick = {
-                            viewModel.selectPlayer(player)
                             navHostController.navigate(
                                 EAPlayersScreens.DetailsScreen.createRoute(
                                     player.id

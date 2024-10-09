@@ -22,28 +22,33 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
+            // Compose
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material3)
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
-            implementation(libs.compose.navigation)
             implementation(libs.compose.multiplatform.ui)
-            implementation(libs.coil.compose.core)
-            implementation(libs.coil.compose)
-            implementation(libs.koin.compose.multiplatform)
+            implementation(libs.compose.navigation)
 
+            // DI
+            implementation(libs.koin.core)
+            implementation(libs.koin.compose.multiplatform)
+            implementation(libs.stately.common)
+
+            // Modules
+            implementation(projects.features.details.view)
+            implementation(projects.features.details.viewmodel)
+            implementation(projects.features.list.view)
             implementation(projects.features.list.viewmodel)
-            implementation(projects.modules.core)
-            implementation(projects.modules.domain)
             implementation(projects.modules.theme)
         }
     }
 }
 
 android {
-    namespace = "io.imrekaszab.eaplayers.playerlist.view"
+    namespace = "io.imrekaszab.eaplayers.navigation"
 
     compileSdk = libs.versions.targetSdk.get().toInt()
     defaultConfig {
