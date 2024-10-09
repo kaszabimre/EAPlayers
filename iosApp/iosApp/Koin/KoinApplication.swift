@@ -14,7 +14,7 @@ public typealias Koin = Koin_coreKoin
 extension KoinApplication {
     static let shared = {
         let baseUrl = (Bundle.main.object(forInfoDictionaryKey: "BASE_URL") as? String) ?? ""
-        return KoinIOSKt.doInitKoinIos(doOnStartup: {}, baseUrl: baseUrl)
+        return KoinIOSKt.doInitKoinIos(baseUrl: baseUrl)
     }()
 
     @discardableResult

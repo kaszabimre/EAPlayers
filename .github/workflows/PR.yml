@@ -25,6 +25,9 @@ jobs:
           distribution: corretto
           java-version: 18
 
+      - name: Cache Kotlin Multiplatform
+        uses: ./.github/actions/kmp_cache
+
       - name: detekt
         run: ./gradlew detekt --stacktrace
 
@@ -46,6 +49,9 @@ jobs:
           distribution: corretto
           java-version: 18
 
+      - name: Cache Kotlin Multiplatform
+        uses: ./.github/actions/kmp_cache
+
       - name: Build
         run: ./gradlew build --stacktrace
 
@@ -64,6 +70,9 @@ jobs:
 
       - name: Grant execute permission for gradlew
         run: chmod +x ./gradlew
+
+      - name: Cache Kotlin Multiplatform
+        uses: ./.github/actions/kmp_cache
 
       - name: Select Xcode version
         run: |
