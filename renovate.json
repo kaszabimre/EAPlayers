@@ -1,21 +1,23 @@
 {
-  "extends": [
-    "config:recommended"
-  ],
+  "extends": ["config:recommended"],
   "packageRules": [
     {
       "matchFileNames": ["**/libs.versions.toml"],
-      "groupName": "TOML version catalog updates"
+      "groupName": "TOML version catalog updates",
+      "separateMinorPatch": true,
+      "separateMajorMinor": true
     },
     {
       "matchFileNames": [".github/workflows/*.yml"],
       "groupName": "GitHub Actions updates",
-      "matchManagers": ["github-actions"]
+      "matchManagers": ["github-actions"],
+      "separateMinorPatch": true,
+      "separateMajorMinor": true
     }
   ],
   "schedule": ["at any time"],
   "automerge": false,
-  "labels": [
-    "dependency-update"
-  ]
+  "labels": ["dependency-update"],
+  "separateMinorPatch": true,
+  "rangeStrategy": "bump"
 }
