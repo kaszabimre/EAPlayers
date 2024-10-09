@@ -4,7 +4,6 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
-    alias(libs.plugins.kotlinSerialization)
 }
 
 kotlin {
@@ -21,20 +20,13 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
-            implementation(libs.kotlinx.coroutines.core)
-            implementation(libs.ktor.client.core)
-            implementation(libs.ktor.serialization)
-            implementation(projects.modules.domain)
             implementation(libs.log.kermit)
-        }
-        commonTest.dependencies {
-            implementation(libs.kotlin.test)
         }
     }
 }
 
 android {
-    namespace = "io.imrekaszab.eaplayers.data"
+    namespace = "io.imrekaszab.eaplayers.logger"
 
     compileSdk = libs.versions.targetSdk.get().toInt()
     defaultConfig {
