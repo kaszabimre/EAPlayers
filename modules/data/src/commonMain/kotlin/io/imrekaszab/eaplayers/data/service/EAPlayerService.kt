@@ -1,5 +1,6 @@
 package io.imrekaszab.eaplayers.data.service
 
+import co.touchlab.kermit.Logger
 import io.imrekaszab.eaplayers.data.api.PlayerApi
 import io.imrekaszab.eaplayers.data.mapper.toPlayer
 import io.imrekaszab.eaplayers.domain.action.EAPlayerAction
@@ -10,8 +11,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.withContext
 
-class EAPlayerService(private val playerApi: PlayerApi) : EAPlayerAction, EAPlayerStore {
-
+class EAPlayerService(private val playerApi: PlayerApi, private val logger: Logger) : EAPlayerAction, EAPlayerStore {
     private val playersStateFlow = MutableStateFlow<List<Player>>(emptyList())
 
     override suspend fun refreshPlayers(search: String) = withContext(Dispatchers.Default) {
@@ -32,8 +32,8 @@ class EAPlayerService(private val playerApi: PlayerApi) : EAPlayerAction, EAPlay
         if (playerIndex != -1) {
             currentPlayers[playerIndex] = player.copy(teamMates = teamMates)
             playersStateFlow.emit(currentPlayers)
-
         }
+        logger.d { "Player updated!" }
         return@withContext
     }
 
