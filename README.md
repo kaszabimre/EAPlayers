@@ -24,11 +24,14 @@ EAPlayers is a showcase of the latest Kotlin Multiplatform technologies for mobi
 - 🖼️ **Compose Multiplatform-based UI**, allowing the views to be shared across Android and iOS for a consistent user experience
 - 🧳 **Shared navigation** implementation using Compose Multiplatform, enabling a unified navigation experience on both platforms
 - 📡 **Fetching player details** and team information from [EA's Drop API](https://drop-api.ea.com)
+- 🚦 **Detekt** for static code analysis and maintaining code quality
+- 🛠️ **Code Style and Inspections** to enforce consistent formatting and static analysis
+- ⚙️ **GitHub Actions** for continuous integration to ensure code quality
 - 🌙 **Dark mode** support for both platforms
-- 💉 [Koin](https://github.com/InsertKoinIO/koin) - Dependency injection
-- 🌎 [Ktor](https://github.com/ktorio/ktor) - Network communication
-- 📦 [Coil](https://github.com/coil-kt/coil) - Image loading
-- 📋 [Kermit](https://github.com/touchlab/Kermit) - Logging
+- 💉 [Koin](https://github.com/InsertKoinIO/koin) - Dependency injection ![GitHub stars](https://img.shields.io/github/stars/InsertKoinIO/koin?style=social)
+- 🌎 [Ktor](https://github.com/ktorio/ktor) - Network communication ![GitHub stars](https://img.shields.io/github/stars/ktorio/ktor?style=social)
+- 📦 [Coil](https://github.com/coil-kt/coil) - Image loading ![GitHub stars](https://img.shields.io/github/stars/coil-kt/coil?style=social)
+- 📋 [Kermit](https://github.com/touchlab/Kermit) - Logging ![GitHub stars](https://img.shields.io/github/stars/touchlab/Kermit?style=social)
 
 
 ### IDE Compatibility
@@ -36,6 +39,24 @@ EAPlayers is a showcase of the latest Kotlin Multiplatform technologies for mobi
 - **Android Studio**: Koala | 2024.1.1 Patch 2
 - **Xcode**: Version 16.0
 
+<details>
+<summary><strong>Setting up Code Style and Inspections in IDEA / Android Studio</strong></summary>
+
+### CodeStyle
+1. Import code style: **Android Studio** -> **Settings** -> **Editor** -> **Code style**.
+   * At the Scheme section click the settings gear
+   * Choose **Import scheme...**
+   * Browse the code style config file at *./config/codestyle.xml*
+2. Hit **Apply**. You can now use **Reformat code** that complies to the standards.
+
+### Inspections
+
+1. Import inspections: **Android Studio** -> **Settings** -> **Editor** -> **Inspections**.
+   * At the Profile section click the settings gear
+   * Choose **Import profile...**
+   * Browse the inspections config file at *./config/inspections.xml*
+2. Hit **Apply**.
+</details>
 
 <details>
 <summary><strong>Detekt</strong></summary>
