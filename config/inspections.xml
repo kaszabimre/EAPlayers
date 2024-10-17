@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inspections version="1.0">
+  <option name="myName" value="EAPlayers" />
+  <inspection_tool class="AndroidKLintDrawAllocation" enabled="true" level="ERROR" enabled_by_default="true" />
+  <inspection_tool class="AndroidKLintHandlerLeak" enabled="true" level="ERROR" enabled_by_default="true" />
+  <inspection_tool class="AndroidKLintIconExtension" enabled="true" level="ERROR" enabled_by_default="true" />
+  <inspection_tool class="AndroidKLintIconLocation" enabled="true" level="ERROR" enabled_by_default="true" />
+  <inspection_tool class="AndroidKLintInlinedApi" enabled="true" level="ERROR" enabled_by_default="true" />
+  <inspection_tool class="AndroidKLintPrivateResource" enabled="true" level="ERROR" enabled_by_default="true" />
+  <inspection_tool class="AndroidKLintRecycle" enabled="true" level="ERROR" enabled_by_default="true" />
+  <inspection_tool class="AndroidKLintSdCardPath" enabled="true" level="ERROR" enabled_by_default="true" />
+  <inspection_tool class="AndroidLintDrawAllocation" enabled="true" level="ERROR" enabled_by_default="true" />
+  <inspection_tool class="AndroidLintHandlerLeak" enabled="true" level="ERROR" enabled_by_default="true" />
+  <inspection_tool class="AndroidLintIconExtension" enabled="true" level="ERROR" enabled_by_default="true" />
+  <inspection_tool class="AndroidLintIconLocation" enabled="true" level="ERROR" enabled_by_default="true" />
+  <inspection_tool class="AndroidLintInlinedApi" enabled="true" level="ERROR" enabled_by_default="true" />
+  <inspection_tool class="AndroidLintManifestOrder" enabled="true" level="ERROR" enabled_by_default="true" />
+  <inspection_tool class="AndroidLintMissingId" enabled="true" level="ERROR" enabled_by_default="true" />
+  <inspection_tool class="AndroidLintPrivateResource" enabled="true" level="ERROR" enabled_by_default="true" />
+  <inspection_tool class="AndroidLintRecycle" enabled="true" level="ERROR" enabled_by_default="true" />
+  <inspection_tool class="AndroidLintScrollViewCount" enabled="true" level="ERROR" enabled_by_default="true" />
+  <inspection_tool class="AndroidLintSdCardPath" enabled="true" level="ERROR" enabled_by_default="true" />
+</inspections>
+
