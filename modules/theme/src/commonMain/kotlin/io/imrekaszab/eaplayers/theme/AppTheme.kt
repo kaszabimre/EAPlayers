@@ -66,16 +66,12 @@ object AppTheme {
     val colorScheme: ColorScheme
         @Composable
         @ReadOnlyComposable
-        get() {
-            val darkTheme = isSystemInDarkTheme()
-            return if (darkTheme) {
-                getDarkColors(LocalAppColors.current)
-            } else {
-                getLightColors(
-                    LocalAppColors.current
-                )
-            }
+        get() = if (isSystemInDarkTheme()) {
+            getDarkColors(LocalAppColors.current)
+        } else {
+            getLightColors(LocalAppColors.current)
         }
+
     val shapes: AppShapes
         @Composable
         @ReadOnlyComposable
