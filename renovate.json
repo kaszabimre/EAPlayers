@@ -9,5 +9,6 @@
   "schedule": ["every weekend"],
   "automerge": false,
   "semanticCommits": "enabled",
+  "dependencyDashboard": true,
   "labels": ["dependency-update"]
 }
