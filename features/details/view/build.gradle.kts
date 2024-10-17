@@ -32,7 +32,6 @@ kotlin {
             implementation(libs.compose.multiplatform.ui)
             implementation(libs.coil.compose.core)
             implementation(libs.coil.compose)
-            implementation(libs.coil.network.okhttp)
             implementation(libs.koin.compose.multiplatform)
 
             implementation(projects.features.details.viewmodel)
