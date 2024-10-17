@@ -75,9 +75,7 @@ fun PlayerListScreen(
                         player = player,
                         onPlayerClick = {
                             navHostController.navigate(
-                                EAPlayersScreens.DetailsScreen.createRoute(
-                                    player.id
-                                )
+                                EAPlayersScreens.DetailsScreen.createRoute(player.id)
                             )
                         }
                     )
