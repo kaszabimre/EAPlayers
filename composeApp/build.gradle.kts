@@ -27,6 +27,7 @@ kotlin {
     ).forEach { iosTarget ->
         iosTarget.binaries.framework {
             baseName = "ComposeApp"
+            freeCompilerArgs += listOf("-Xbinary=bundleId=io.imrekaszab.eaplayers.ComposeApp")
         }
     }
     sourceSets {

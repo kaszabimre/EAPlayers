@@ -1,6 +1,7 @@
 import io.gitlab.arturbosch.detekt.Detekt
 import io.gitlab.arturbosch.detekt.DetektCreateBaselineTask
 import io.gitlab.arturbosch.detekt.extensions.DetektExtension
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     // trick: for the same plugin versions in all sub-modules
@@ -12,6 +13,12 @@ plugins {
     alias(libs.plugins.composeMultiplatform).apply(false)
     alias(libs.plugins.jetbrainsCompose).apply(false)
     alias(libs.plugins.detekt)
+}
+
+tasks.withType<KotlinCompile> {
+    compilerOptions {
+        freeCompilerArgs.add("-Xconsistent-data-class-copy-visibility")
+    }
 }
 
 allprojects {
