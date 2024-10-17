@@ -5,6 +5,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -95,10 +96,10 @@ fun PlayerRankBadge(player: Player) {
     Surface(
         shape = AppTheme.shapes.default.roundedDefault,
         color = AppTheme.colorScheme.primary,
-        modifier = Modifier.size(AppTheme.dimens.margin.extraLarge)
+        modifier = Modifier.defaultMinSize(AppTheme.dimens.margin.extraLarge)
     ) {
         Column(
-            modifier = Modifier.fillMaxSize(),
+            modifier = Modifier.padding(AppTheme.dimens.margin.extraTiny),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
