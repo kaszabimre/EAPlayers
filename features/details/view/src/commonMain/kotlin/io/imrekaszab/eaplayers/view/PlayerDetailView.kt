@@ -81,11 +81,15 @@ fun PlayerInfoSection(player: Player) {
         PlayerStatRow(
             statItems = listOf(
                 PlayerStat(
-                    player.nationality.imageUrl,
-                    player.nationality.label,
-                    stringResource(Res.string.nationality)
+                    imageUrl = player.nationality.imageUrl,
+                    stat = player.nationality.label,
+                    label = stringResource(Res.string.nationality)
                 ),
-                PlayerStat(player.team.imageUrl, player.team.label, stringResource(Res.string.team))
+                PlayerStat(
+                    imageUrl = player.team.imageUrl,
+                    stat = player.team.label,
+                    label = stringResource(Res.string.team)
+                )
             )
         )
     }
