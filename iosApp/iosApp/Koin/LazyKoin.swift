@@ -10,7 +10,11 @@ import ComposeApp
 
 @propertyWrapper
 struct LazyKoin<T: AnyObject> {
+    // swiftlint:disable unneeded_synthesized_initializer
+
     lazy var wrappedValue: T = { KoinApplication.shared.inject() }()
 
     init() { }
+
+    // swiftlint:enable unneeded_synthesized_initializer
 }
