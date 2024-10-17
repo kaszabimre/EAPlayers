@@ -21,7 +21,6 @@ class PlayerDetailViewModel(
 
     val loadPlayerDetails = command { playerId: Int ->
         _uiState.emit(PlayerDetailState(loading = true))
-        delay(200L)
         val playerList =
             eaPlayerStore.getPlayerList().firstOrNull() ?: emptyList()
         val player = playerList.firstOrNull { it.id == playerId } ?: return@command
