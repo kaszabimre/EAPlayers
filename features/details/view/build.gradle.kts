@@ -32,6 +32,7 @@ kotlin {
             implementation(libs.compose.multiplatform.ui)
             implementation(libs.coil.compose.core)
             implementation(libs.coil.compose)
+            implementation(libs.coil.network.okhttp)
             implementation(libs.koin.compose.multiplatform)
 
             implementation(projects.features.details.viewmodel)
@@ -58,6 +59,14 @@ android {
         buildConfig = true
     }
     dependencies {
+        // Compose
+        implementation(libs.compose.ui.tooling.preview)
+        implementation(libs.compose.ui.tooling)
+        implementation(libs.compose.runtime)
+
+        // Coil
+        implementation(libs.coil.network.okhttp)
+
         // Detekt
         detektPlugins(libs.detekt.formatting)
     }
