@@ -10,9 +10,9 @@ EAPlayers is a Kotlin Multiplatform project that leverages **Compose Multiplatfo
 
 ### Screenshots
 
-|                      Android                       |                      iOS                       |
-|:--------------------------------------------------:|:----------------------------------------------:|
-| <img src="/screenshots/android.gif" width="250" /> | <img src="/screenshots/ios.gif" width="250" /> |
+|                      Android                       |                      iOS                       |                      Desktop                       |
+|:--------------------------------------------------:|:----------------------------------------------:|:--------------------------------------------------:|
+| <img src="/screenshots/android.gif" width="250" /> | <img src="/screenshots/ios.gif" width="250" /> | <img src="/screenshots/desktop.gif" width="250" /> |
 
 ---
 
@@ -23,6 +23,8 @@ EAPlayers is a showcase of the latest Kotlin Multiplatform technologies for mobi
 - 🧩 **Shared ViewModels** for business logic across platforms
 - 🖼️ **Compose Multiplatform-based UI**, allowing the views to be shared across Android and iOS for a consistent user experience
 - 🧳 **Shared navigation** implementation using Compose Multiplatform, enabling a unified navigation experience on both platforms
+- 🖥️ **Compose for Desktop** support
+- 🏗️ **Multi-modular architecture** for improved maintainability, scalability, and build efficiency
 - 📡 **Fetching player details** and team information from [EA's Drop API](https://drop-api.ea.com)
 - 🚦 **Detekt** for static code analysis and maintaining code quality
 - 🛠️ **Code Style and Inspections** to enforce consistent formatting and static analysis
@@ -56,6 +58,24 @@ EAPlayers is a showcase of the latest Kotlin Multiplatform technologies for mobi
    * Choose **Import profile...**
    * Browse the inspections config file at *./config/inspections.xml*
 2. Hit **Apply**.
+</details>
+
+<details>
+<summary><strong>Desktop Support</strong></summary>
+
+The project includes desktop support using **Compose for Desktop**. This allows the application to run natively, providing a consistent user experience across mobile and desktop environments.
+
+To run the desktop version of the app, follow these steps:
+
+1. Ensure you have the necessary environment set up, including a compatible JDK and Kotlin Multiplatform dependencies.
+2. Use the following command to build and run the desktop application:
+
+   ```bash
+   ./gradlew composeApp:run
+   ```
+
+3. The application will start up and can be tested on your local machine.
+
 </details>
 
 <details>
