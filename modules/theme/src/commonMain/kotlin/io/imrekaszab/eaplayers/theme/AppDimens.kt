@@ -26,7 +26,8 @@ data class AppDimens internal constructor(
     val drawerMenu: DrawerMenu = DrawerMenu(),
     val textInput: TextInput = TextInput(),
     val imageSize: ImageSize = ImageSize(),
-    val playerDetailView: PlayerDetailView = PlayerDetailView()
+    val playerDetailView: PlayerDetailView = PlayerDetailView(),
+    val statItem: StatItem = StatItem(),
 ) {
     data class Margin internal constructor(
         val huge: Dp = 56.dp,
@@ -101,6 +102,10 @@ data class AppDimens internal constructor(
         val cardWidth: Dp = 80.dp,
         val gridMinSize: Dp = 100.dp,
         val playerItemImageSize: Dp = 100.dp
+    )
+
+    data class StatItem internal constructor(
+        val circleSize: Dp = 100.dp
     )
 }
 

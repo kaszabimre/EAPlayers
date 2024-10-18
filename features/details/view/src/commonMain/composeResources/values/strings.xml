@@ -3,6 +3,11 @@
     <string name="rating">Rating</string>
     <string name="position">Position</string>
     <string name="height">Height</string>
+    <string name="stats">Stats</string>
+    <string name="main_stats">Main Stats</string>
+    <string name="other_stats">Other Stats</string>
+    <string name="collapse_desc">Collapse</string>
+    <string name="expand_desc">Expand</string>
     <string name="team_mates">Team mates</string>
     <string name="player_rank">Rank: %1$s</string>
     <string name="nationality">Nationality</string>

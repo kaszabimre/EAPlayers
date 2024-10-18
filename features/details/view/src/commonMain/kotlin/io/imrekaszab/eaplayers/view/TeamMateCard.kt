@@ -59,6 +59,7 @@ fun TeamMateCard(mate: Player, onTeamMateSelected: (Player) -> Unit) {
         modifier = Modifier
             .padding(AppTheme.dimens.margin.tiny)
             .width(AppTheme.dimens.playerDetailView.cardWidth)
+            .clip(AppTheme.shapes.default.roundedSmall)
             .clickable { onTeamMateSelected(mate) },
         horizontalAlignment = Alignment.CenterHorizontally
     ) {

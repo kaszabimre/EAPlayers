@@ -66,7 +66,11 @@ fun PlayerDetailScreen(
                         navHostController.navigate(
                             EAPlayersScreens.DetailsScreen.createRoute(it.id),
                         )
-                    }
+                    },
+                    isMainStatsExpanded = uiState.isMainStatsExpanded,
+                    onMainStatsExpandClick = { viewModel.toggleMainStatsExpanded() },
+                    isOtherStatsExpanded = uiState.isOtherStatsExpanded,
+                    onOtherStatsExpandClick = { viewModel.toggleOtherStatsExpanded() }
                 )
             }
         }

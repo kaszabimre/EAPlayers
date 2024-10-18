@@ -60,7 +60,8 @@ object MockPlayer {
                 type = AbilityType(id = "playStyle", label = "Play Style")
             )
         ),
-        teamMates = listOf(createMockTeammate())
+        teamMates = listOf(createMockTeammate()),
+        stats = emptyList()
     )
 
     private fun createMockTeammate() = Player(
@@ -103,6 +104,7 @@ object MockPlayer {
                 type = AbilityType(id = "playStyle", label = "Play Style")
             )
         ),
-        teamMates = emptyList()
+        teamMates = emptyList(),
+        stats = emptyList()
     )
 }
