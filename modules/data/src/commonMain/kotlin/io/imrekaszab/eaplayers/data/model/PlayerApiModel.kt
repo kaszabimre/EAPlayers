@@ -21,7 +21,8 @@ data class PlayerApiModel(
     val nationality: NationalityApiModel,
     val team: TeamApiModel,
     val position: PositionApiModel,
-    val playerAbilities: List<PlayerAbilityApiModel>
+    val playerAbilities: List<PlayerAbilityApiModel>,
+    val stats: Map<String, StatDetailApiModel> = emptyMap()
 )
 
 @Serializable
@@ -59,4 +60,10 @@ data class PlayerAbilityApiModel(
 data class AbilityTypeApiModel(
     val id: String,
     val label: String
+)
+
+@Serializable
+data class StatDetailApiModel(
+    val value: Int,
+    val diff: Int
 )

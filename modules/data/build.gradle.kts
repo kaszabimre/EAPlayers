@@ -28,6 +28,9 @@ kotlin {
             implementation(libs.ktor.serialization)
             implementation(projects.modules.domain)
             implementation(libs.log.kermit)
+
+            // Modules
+            implementation(projects.modules.core)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)

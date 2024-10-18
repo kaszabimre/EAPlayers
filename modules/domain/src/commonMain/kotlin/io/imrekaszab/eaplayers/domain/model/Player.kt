@@ -19,7 +19,8 @@ data class Player(
     val team: Team,
     val position: Position,
     val playerAbilities: List<PlayerAbility>,
-    val teamMates: List<Player> = emptyList()
+    val teamMates: List<Player> = emptyList(),
+    val stats: List<StatEntry> = emptyList()
 )
 
 data class Nationality(
@@ -52,4 +53,11 @@ data class PlayerAbility(
 data class AbilityType(
     val id: String,
     val label: String
+)
+
+data class StatEntry(
+    val displayName: String,
+    val value: Int,
+    val diff: Int,
+    val isAnimated: Boolean = false
 )

@@ -9,6 +9,7 @@ import io.imrekaszab.eaplayers.domain.store.EAPlayerStore
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
 
 class EAPlayerService(private val playerApi: PlayerApi, private val logger: Logger) : EAPlayerAction, EAPlayerStore {
@@ -31,11 +32,13 @@ class EAPlayerService(private val playerApi: PlayerApi, private val logger: Logg
 
         if (playerIndex != -1) {
             currentPlayers[playerIndex] = player.copy(teamMates = teamMates)
-            playersStateFlow.emit(currentPlayers)
+            playersStateFlow.emit((currentPlayers + teamMates).distinctBy { player -> player.id })
         }
         logger.d { "Player updated!" }
         return@withContext
     }
+
+    override fun getPlayer(id: Int): Flow<Player> = getPlayerList().map { list -> list.first { it.id == id } }
 
     override fun getPlayerList(): Flow<List<Player>> =
         playersStateFlow

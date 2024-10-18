@@ -28,7 +28,11 @@ import org.jetbrains.compose.resources.stringResource
 fun PlayerDetailView(
     modifier: Modifier = Modifier,
     player: Player,
-    onTeamMateSelected: (Player) -> Unit
+    onTeamMateSelected: (Player) -> Unit,
+    isMainStatsExpanded: Boolean,
+    isOtherStatsExpanded: Boolean,
+    onMainStatsExpandClick: () -> Unit,
+    onOtherStatsExpandClick: () -> Unit,
 ) {
     Column(
         modifier = modifier
@@ -44,6 +48,16 @@ fun PlayerDetailView(
         Spacer(modifier = Modifier.height(AppTheme.dimens.margin.default))
 
         PlayerStatsRow(player = player)
+
+        Spacer(modifier = Modifier.height(AppTheme.dimens.margin.big))
+
+        StatsView(
+            stats = player.stats,
+            isMainStatsExpanded = isMainStatsExpanded,
+            isOtherStatsExpanded = isOtherStatsExpanded,
+            onMainStatsExpandClick = onMainStatsExpandClick,
+            onOtherStatsExpandClick = onOtherStatsExpandClick
+        )
 
         Spacer(modifier = Modifier.height(AppTheme.dimens.margin.big))
 

@@ -5,7 +5,6 @@ import io.imrekaszab.eaplayers.core.util.command
 import io.imrekaszab.eaplayers.domain.action.EAPlayerAction
 import io.imrekaszab.eaplayers.domain.store.EAPlayerStore
 import io.imrekaszab.eaplayers.ui.model.PlayerDetailState
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -21,22 +20,26 @@ class PlayerDetailViewModel(
 
     val loadPlayerDetails = command { playerId: Int ->
         _uiState.emit(PlayerDetailState(loading = true))
-        delay(200L)
-        val playerList =
-            eaPlayerStore.getPlayerList().firstOrNull() ?: emptyList()
-        val player = playerList.firstOrNull { it.id == playerId } ?: return@command
+        val player = eaPlayerStore.getPlayer(playerId).firstOrNull() ?: return@command
 
         if (player.teamMates.isEmpty()) {
             eaPlayerAction.selectPlayer(player)
             _uiState.emit(
                 PlayerDetailState(
-                    player = eaPlayerStore.getPlayerList().firstOrNull()
-                        ?.first { it.id == playerId },
+                    player = eaPlayerStore.getPlayer(playerId).firstOrNull(),
                     loading = false
                 )
             )
         } else {
             _uiState.emit(PlayerDetailState(player = player, loading = false))
         }
+    }
+
+    val toggleMainStatsExpanded = command {
+        _uiState.emit(uiState.value.copy(isMainStatsExpanded = !uiState.value.isMainStatsExpanded))
+    }
+
+    val toggleOtherStatsExpanded = command {
+        _uiState.emit(uiState.value.copy(isOtherStatsExpanded = !uiState.value.isOtherStatsExpanded))
     }
 }

@@ -16,6 +16,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.font.FontWeight
 import coil3.compose.AsyncImage
 import eaplayers.features.list.view.generated.resources.Res
@@ -37,6 +38,7 @@ fun PlayerItemView(player: Player, onPlayerClick: (Player) -> Unit) {
         modifier = Modifier
             .padding(AppTheme.dimens.margin.small)
             .fillMaxWidth()
+            .clip(AppTheme.shapes.default.roundedSmall)
             .clickable { onPlayerClick(player) }
     ) {
         Row(
