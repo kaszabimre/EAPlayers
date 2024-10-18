@@ -1,0 +1,4 @@
+<resources>>
+    <string name="app_name">EAPlayers</string>
+    <string name="base_url">https://drop-api.ea.com</string>
+</resources>

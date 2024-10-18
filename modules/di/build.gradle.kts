@@ -18,11 +18,13 @@ kotlin {
     iosArm64()
     iosSimulatorArm64()
 
+    jvm()
+
     sourceSets {
         androidMain.dependencies {
             implementation(libs.koin.compose)
             implementation(libs.koin.android)
-            implementation(libs.ktor.client.android)
+            implementation(libs.ktor.client.okhttp)
         }
         commonMain.dependencies {
 
@@ -54,6 +56,10 @@ kotlin {
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
+        }
+
+        jvmMain.dependencies {
+            implementation(libs.ktor.client.okhttp)
         }
     }
 }

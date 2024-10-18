@@ -20,6 +20,8 @@ kotlin {
     iosArm64()
     iosSimulatorArm64()
 
+    jvm()
+
     listOf(
         iosX64(),
         iosArm64(),
@@ -34,6 +36,10 @@ kotlin {
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
+        }
+        jvmMain.dependencies {
+            implementation(compose.desktop.currentOs)
+            implementation(libs.kotlinx.coroutines.swing)
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -116,5 +122,11 @@ android {
 
         // Detekt
         detektPlugins(libs.detekt.formatting)
+    }
+}
+
+compose.desktop {
+    application {
+        mainClass = "io.imrekaszab.eaplayers.MainKt"
     }
 }
