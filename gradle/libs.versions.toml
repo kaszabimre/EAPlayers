@@ -30,7 +30,7 @@ koinCompose = "1.1.5"
 
 detekt = "1.23.7"
 composeMaterial = "1.4.0"
-statelyCommon = "2.0.7"
+statelyCommon = "2.1.0"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
