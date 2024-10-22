@@ -31,9 +31,15 @@ kotlin {
 
             // Modules
             implementation(projects.modules.core)
+            implementation(projects.modules.testing)
         }
-        commonTest.dependencies {
+
+        androidUnitTest.dependencies {
+            // Test
             implementation(libs.kotlin.test)
+            implementation(libs.kotlin.test.junit)
+            implementation(libs.test.coroutines)
+            implementation(libs.test.mockk)
         }
     }
 }

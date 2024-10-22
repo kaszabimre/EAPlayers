@@ -46,7 +46,7 @@ allprojects {
         "*ComposableSingletons",
     )
 
-    val koverIncludeList = listOf("*.viewmodel.*")
+    val koverIncludeList = listOf("*.viewmodel.*", "*.data.service.*")
 
     extensions.configure<DetektExtension> {
         autoCorrect = true

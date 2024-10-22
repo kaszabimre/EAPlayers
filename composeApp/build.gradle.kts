@@ -112,6 +112,7 @@ android {
     dependencies {
         kover(projects.features.list.viewmodel)
         kover(projects.features.details.viewmodel)
+        kover(projects.modules.data)
         implementation(libs.androidx.compose.material)
         implementation(libs.kotlinx.coroutines.android)
         debugImplementation(compose.uiTooling)
