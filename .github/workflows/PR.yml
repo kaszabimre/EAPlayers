@@ -39,6 +39,8 @@ jobs:
   build-android:
     needs: pre-conditions
     runs-on: ubuntu-24.04
+    outputs:
+      kover_report_available: ${{ steps.kover_report.outputs.kover_report_available }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -54,6 +56,21 @@ jobs:
 
       - name: Build
         run: ./gradlew build --stacktrace
+
+      - name: Kover XML Report
+        uses: ./.github/actions/kover_report
+        id: kover_report
+        with:
+          kover_report_path: ${{ github.workspace }}/composeApp/build/reports/kover/reportDebug.xml
+          artifacts_name: "android-test-report"
+
+      - name: Upload Kover Report
+        if: steps.kover_report.outputs.kover_report_available == 'true'
+        uses: actions/upload-artifact@v3.1.2
+        with:
+          name: ${{ steps.kover_report.outputs.artifacts_name }}
+          path: ${{ github.workspace }}/composeApp/build/reports/kover/reportDebug.xml
+          retention-days: 5
 
   build-ios:
     needs: pre-conditions
@@ -90,4 +107,24 @@ jobs:
             -destination 'platform=iOS Simulator,name=iPhone 15,OS=18.0' \
             -allowProvisioningUpdates \
             -configuration Debug \
-            DEVELOPMENT_TEAM=${{ secrets.APPLE_TEAM_ID }}  # Reference the GitHub secret here
+            DEVELOPMENT_TEAM=${{ secrets.APPLE_TEAM_ID }}
+
+  comment-test-report:
+    needs: [build-android]
+    if: |
+      always() &&
+      github.event_name == 'pull_request' &&
+      needs.build-android.outputs.kover_report_available == 'true'
+    runs-on: ubuntu-24.04
+    permissions:
+      actions: read
+      contents: read
+      pull-requests: write
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Comment Kover Report to PR
+        uses: ./.github/actions/comment_kover_report_to_pr
+        with:
+          platform: Android
+          report_name: "android-test-report"

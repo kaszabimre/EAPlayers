@@ -1,0 +1,26 @@
+name: Comment Kover Report to the PR
+description: |
+  This GitHub Actions workflow downloads a code coverage report artifact and adds it as a comment to
+  a pull request using the Kover Report GitHub Action.
+inputs:
+  report_name:
+    required: true
+    description: A required string indicating the name of the artifact that contains the code coverage report.
+
+runs:
+  using: composite
+
+  steps:
+    - name: Download report
+      uses: actions/download-artifact@v3.0.2
+      with:
+        name: ${{ inputs.report_name }}
+
+    - name: Add coverage report to PR
+      id: kover
+      uses: mi-kas/kover-report@v1.6
+      with:
+        path: ${{ github.workspace }}/reportDebug.xml
+        token: ${{ github.token }}
+        title: Code Coverage for Android Build
+        update-comment: true
