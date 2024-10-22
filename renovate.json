@@ -4,6 +4,10 @@
   "packageRules": [
     {
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"]
+    },
+    {
+      "matchPackagePatterns": ["polaris"],
+      "enabled": false
     }
   ],
   "schedule": ["every weekend"],
