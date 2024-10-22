@@ -66,7 +66,7 @@ jobs:
 
       - name: Upload Kover Report
         if: steps.kover_report.outputs.kover_report_available == 'true'
-        uses: actions/upload-artifact@v4.4.3
+        uses: actions/upload-artifact@v3.1.2
         with:
           name: ${{ steps.kover_report.outputs.artifacts_name }}
           path: ${{ github.workspace }}/composeApp/build/reports/kover/reportDebug.xml

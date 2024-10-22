@@ -84,38 +84,37 @@ allprojects {
         jvmTarget = libs.versions.javaTargetCompatibility.get()
     }
 
-    if (koverIncludeList.any { project.name.contains(it) }) {
-        kover {
-            currentProject {
-                instrumentation {
-                    excludedClasses.addAll(koverExcludeList)
-                }
-                sources {
-                    excludeJava = true
-                }
+    kover {
+        currentProject {
+            instrumentation {
+                excludedClasses.addAll(koverExcludeList)
             }
-            reports {
+            sources {
+                excludeJava = true
+            }
+        }
+        reports {
+            filters {
+                excludes { classes(koverExcludeList) }
+                includes { classes(koverIncludeList) }
+            }
+
+            total {
                 filters {
                     excludes { classes(koverExcludeList) }
                     includes { classes(koverIncludeList) }
                 }
+                verify {
+                    rule("Minimum coverage verification error") {
+                        disabled = false
+                        groupBy = kotlinx.kover.gradle.plugin.dsl.GroupingEntityType.APPLICATION
 
-                total {
-                    filters {
-                        excludes { classes(koverExcludeList) }
-                        includes { classes(koverIncludeList) }
-                    }
-                    verify {
-                        rule("Minimum coverage verification error") {
-                            disabled = false
-                            groupBy = kotlinx.kover.gradle.plugin.dsl.GroupingEntityType.APPLICATION
-
-                            bound {
-                                minValue.set(defaultRequiredMinimumCoverage)
-                                maxValue.set(defaultRequiredMaximumCoverage)
-                                coverageUnits.set(CoverageUnit.LINE)
-                                aggregationForGroup = kotlinx.kover.gradle.plugin.dsl.AggregationType.COVERED_PERCENTAGE
-                            }
+                        bound {
+                            minValue.set(defaultRequiredMinimumCoverage)
+                            maxValue.set(defaultRequiredMaximumCoverage)
+                            coverageUnits.set(CoverageUnit.LINE)
+                            aggregationForGroup =
+                                kotlinx.kover.gradle.plugin.dsl.AggregationType.COVERED_PERCENTAGE
                         }
                     }
                 }
