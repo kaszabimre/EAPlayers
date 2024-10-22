@@ -93,7 +93,7 @@ android {
     }
     packaging {
         resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+            excludes += "/META-INF/{AL2.0,LGPL2.1,LICENSE.md,LICENSE-notice.md}"
         }
     }
     buildTypes {
@@ -110,6 +110,8 @@ android {
         buildConfig = true
     }
     dependencies {
+        kover(projects.features.list.viewmodel)
+        kover(projects.features.details.viewmodel)
         implementation(libs.androidx.compose.material)
         implementation(libs.kotlinx.coroutines.android)
         debugImplementation(compose.uiTooling)

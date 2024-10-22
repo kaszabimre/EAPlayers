@@ -16,10 +16,10 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import io.imrekaszab.eaplayers.core.util.invoke
 import io.imrekaszab.eaplayers.core.viewmodel.koinViewModel
+import io.imrekaszab.eaplayers.playerdetails.viewmodel.PlayerDetailViewModel
 import io.imrekaszab.eaplayers.theme.AppTheme
 import io.imrekaszab.eaplayers.theme.navigation.EAPlayersScreens
 import io.imrekaszab.eaplayers.theme.widgets.LoadingIndicator
-import io.imrekaszab.eaplayers.ui.viewmodel.PlayerDetailViewModel
 
 @Composable
 fun PlayerDetailScreen(

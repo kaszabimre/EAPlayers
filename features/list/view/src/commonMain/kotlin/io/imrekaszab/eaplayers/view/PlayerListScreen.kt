@@ -22,10 +22,10 @@ import androidx.navigation.NavHostController
 import io.imrekaszab.eaplayers.core.util.collectAsStateInLifecycle
 import io.imrekaszab.eaplayers.core.util.invoke
 import io.imrekaszab.eaplayers.core.viewmodel.koinViewModel
+import io.imrekaszab.eaplayers.playerlist.viewmodel.PlayerListViewModel
 import io.imrekaszab.eaplayers.theme.AppTheme
 import io.imrekaszab.eaplayers.theme.navigation.EAPlayersScreens
 import io.imrekaszab.eaplayers.theme.widgets.LoadingIndicator
-import io.imrekaszab.eaplayers.ui.viewmodel.PlayerListViewModel
 
 @Composable
 fun PlayerListScreen(
