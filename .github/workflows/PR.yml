@@ -62,7 +62,7 @@ jobs:
         id: kover_report
         with:
           kover_report_path: ${{ github.workspace }}/composeApp/build/reports/kover/reportDebug.xml
-          artifacts_name: "android-test-report"
+          artifacts_name: android-test-report
 
       - name: Upload Kover Report
         if: steps.kover_report.outputs.kover_report_available == 'true'
@@ -127,4 +127,4 @@ jobs:
         uses: ./.github/actions/comment_kover_report_to_pr
         with:
           platform: Android
-          report_name: "android-test-report"
+          report_name: android-test-report

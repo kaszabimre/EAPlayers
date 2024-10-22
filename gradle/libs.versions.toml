@@ -32,12 +32,7 @@ koinCompose = "1.1.5"
 detekt = "1.23.7"
 composeMaterial = "1.4.0"
 statelyCommon = "2.1.0"
-coreKtx = "1.13.1"
 junit = "4.13.2"
-junitVersion = "1.2.1"
-espressoCore = "3.6.1"
-appcompat = "1.7.0"
-material = "1.12.0"
 
 [libraries]
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
@@ -86,12 +81,7 @@ kotlin-test-common = { module = "org.jetbrains.kotlin:kotlin-test-common", versi
 kotlin-test-annotations-common = { module = "org.jetbrains.kotlin:kotlin-test-annotations-common", version.ref = "kotlin" }
 test-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
 test-mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
-androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
-androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
-androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
-androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 
 [plugins]
 kotlin-parcelize = { id = "kotlin-parcelize", version = "kotlin" }
