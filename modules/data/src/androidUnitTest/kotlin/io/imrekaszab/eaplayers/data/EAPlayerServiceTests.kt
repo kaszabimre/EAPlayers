@@ -19,6 +19,7 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class EAPlayerServiceTests {
+    private val searchQuery = "search"
     private val playerApi: PlayerApi = mockk()
     private val logger: Logger = mockk(relaxed = true)
     private lateinit var service: EAPlayerService
@@ -35,7 +36,6 @@ class EAPlayerServiceTests {
     fun `refreshPlayers should call playerApi and update playersStateFlow`() =
         runTest(mainDispatcherRule.testDispatcher) {
             // Given
-            val search = "search"
             val mockPlayerResponse = listOf(MockPlayer.createMockPlayer().toApiModel())
             coEvery { playerApi.getPlayersResponse(any()) } returns PlayersResponse(
                 items = mockPlayerResponse,
@@ -43,12 +43,12 @@ class EAPlayerServiceTests {
             )
 
             // When
-            service.refreshPlayers(search)
+            service.refreshPlayers(searchQuery)
 
             // Then
             val players = service.getPlayerList().first()
             assertEquals(mockPlayerResponse.map { it.toPlayer() }, players)
-            coVerify { playerApi.getPlayersResponse(search) }
+            coVerify { playerApi.getPlayersResponse(searchQuery) }
         }
 
     @Test
@@ -69,7 +69,7 @@ class EAPlayerServiceTests {
             )
 
             // Refresh players first
-            service.refreshPlayers("search")
+            service.refreshPlayers(searchQuery)
 
             // When
             service.selectPlayer(mockPlayer)
@@ -95,7 +95,7 @@ class EAPlayerServiceTests {
         )
 
         // Refresh players first
-        service.refreshPlayers("search")
+        service.refreshPlayers(searchQuery)
 
         // When
         val player = service.getPlayer(mockPlayer.id).first()
