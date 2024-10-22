@@ -36,6 +36,17 @@ jobs:
         env:
           WORKING_DIRECTORY: ./iosApp
 
+      - name: Tests
+        uses: gradle/gradle-build-action@v2.6.1
+        with:
+          arguments: test
+
+      - name: Kover XML Report
+        uses: ./.github/actions/kover_report
+        id: kover_report
+        with:
+          artifacts_name: android-test-report
+
   build-android:
     needs: pre-conditions
     runs-on: ubuntu-24.04
@@ -56,21 +67,6 @@ jobs:
 
       - name: Build
         run: ./gradlew build --stacktrace
-
-      - name: Kover XML Report
-        uses: ./.github/actions/kover_report
-        id: kover_report
-        with:
-          kover_report_path: ${{ github.workspace }}/composeApp/build/reports/kover/reportDebug.xml
-          artifacts_name: android-test-report
-
-      - name: Upload Kover Report
-        if: steps.kover_report.outputs.kover_report_available == 'true'
-        uses: actions/upload-artifact@v3.1.2
-        with:
-          name: ${{ steps.kover_report.outputs.artifacts_name }}
-          path: ${{ github.workspace }}/composeApp/build/reports/kover/reportDebug.xml
-          retention-days: 5
 
   build-ios:
     needs: pre-conditions
@@ -110,11 +106,10 @@ jobs:
             DEVELOPMENT_TEAM=${{ secrets.APPLE_TEAM_ID }}
 
   comment-test-report:
-    needs: [build-android]
+    needs: [pre-conditions]
     if: |
       always() &&
-      github.event_name == 'pull_request' &&
-      needs.build-android.outputs.kover_report_available == 'true'
+      github.event_name == 'pull_request'
     runs-on: ubuntu-24.04
     permissions:
       actions: read
@@ -126,5 +121,4 @@ jobs:
       - name: Comment Kover Report to PR
         uses: ./.github/actions/comment_kover_report_to_pr
         with:
-          platform: Android
           report_name: android-test-report

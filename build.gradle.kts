@@ -47,6 +47,7 @@ allprojects {
     )
 
     val koverIncludeList = listOf("*.viewmodel.*", "*.data.service.*")
+    val koverProjectNames = listOf("data", "viewmodel", "composeApp")
 
     extensions.configure<DetektExtension> {
         autoCorrect = true
@@ -83,38 +84,31 @@ allprojects {
     tasks.withType<DetektCreateBaselineTask>().configureEach {
         jvmTarget = libs.versions.javaTargetCompatibility.get()
     }
-
-    kover {
-        currentProject {
-            instrumentation {
-                excludedClasses.addAll(koverExcludeList)
-            }
-            sources {
-                excludeJava = true
-            }
-        }
-        reports {
-            filters {
-                excludes { classes(koverExcludeList) }
-                includes { classes(koverIncludeList) }
-            }
-
-            total {
+    if (koverProjectNames.any { project.name.contains(it) }) {
+        kover {
+            reports {
                 filters {
                     excludes { classes(koverExcludeList) }
                     includes { classes(koverIncludeList) }
                 }
-                verify {
-                    rule("Minimum coverage verification error") {
-                        disabled = false
-                        groupBy = kotlinx.kover.gradle.plugin.dsl.GroupingEntityType.APPLICATION
 
-                        bound {
-                            minValue.set(defaultRequiredMinimumCoverage)
-                            maxValue.set(defaultRequiredMaximumCoverage)
-                            coverageUnits.set(CoverageUnit.LINE)
-                            aggregationForGroup =
-                                kotlinx.kover.gradle.plugin.dsl.AggregationType.COVERED_PERCENTAGE
+                total {
+                    filters {
+                        excludes { classes(koverExcludeList) }
+                        includes { classes(koverIncludeList) }
+                    }
+                    verify {
+                        rule("Minimum coverage verification error") {
+                            disabled = false
+                            groupBy = kotlinx.kover.gradle.plugin.dsl.GroupingEntityType.APPLICATION
+
+                            bound {
+                                minValue.set(defaultRequiredMinimumCoverage)
+                                maxValue.set(defaultRequiredMaximumCoverage)
+                                coverageUnits.set(CoverageUnit.LINE)
+                                aggregationForGroup =
+                                    kotlinx.kover.gradle.plugin.dsl.AggregationType.COVERED_PERCENTAGE
+                            }
                         }
                     }
                 }
