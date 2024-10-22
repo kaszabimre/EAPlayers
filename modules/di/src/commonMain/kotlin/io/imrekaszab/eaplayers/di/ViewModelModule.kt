@@ -1,7 +1,7 @@
 package io.imrekaszab.eaplayers.di
 
-import io.imrekaszab.eaplayers.ui.viewmodel.PlayerDetailViewModel
-import io.imrekaszab.eaplayers.ui.viewmodel.PlayerListViewModel
+import io.imrekaszab.eaplayers.playerdetails.viewmodel.PlayerDetailViewModel
+import io.imrekaszab.eaplayers.playerlist.viewmodel.PlayerListViewModel
 import org.koin.dsl.module
 
 val viewModelModule = module {

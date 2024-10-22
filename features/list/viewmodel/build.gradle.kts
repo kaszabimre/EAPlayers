@@ -23,10 +23,21 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
+            // Compose
             implementation(libs.compose.navigation)
 
+            // Modules
             implementation(projects.modules.core)
             implementation(projects.modules.domain)
+            implementation(projects.modules.testing)
+        }
+
+        androidUnitTest.dependencies {
+            // Test
+            implementation(libs.kotlin.test)
+            implementation(libs.kotlin.test.junit)
+            implementation(libs.test.coroutines)
+            implementation(libs.test.mockk)
         }
     }
 }

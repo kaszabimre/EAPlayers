@@ -1,6 +1,7 @@
 import io.gitlab.arturbosch.detekt.Detekt
 import io.gitlab.arturbosch.detekt.DetektCreateBaselineTask
 import io.gitlab.arturbosch.detekt.extensions.DetektExtension
+import kotlinx.kover.gradle.plugin.dsl.CoverageUnit
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
@@ -14,19 +15,40 @@ plugins {
     alias(libs.plugins.jetbrainsCompose).apply(false)
     alias(libs.plugins.kotlinJvm).apply(false)
     alias(libs.plugins.detekt)
+    alias(libs.plugins.kover)
 }
 
 tasks.withType<KotlinCompile> {
     compilerOptions {
-        freeCompilerArgs.add("-Xconsistent-data-class-copy-visibility")
+        freeCompilerArgs.addAll(
+            listOf(
+                "-Xconsistent-data-class-copy-visibility",
+                "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi"
+            )
+        )
     }
 }
 
+val defaultRequiredMinimumCoverage = 80
+val defaultRequiredMaximumCoverage = 100
+
 allprojects {
     apply(plugin = "io.gitlab.arturbosch.detekt")
+    apply(plugin = "org.jetbrains.kotlinx.kover")
+
+    val koverExcludeList = listOf(
+        "*Activity",
+        "*Activity\$*",
+        "*.databinding.*",
+        "*.BuildConfig",
+        "*ComposableSingletons",
+        "*_Factory",
+        "*ComposableSingletons",
+    )
+
+    val koverIncludeList = listOf("*.viewmodel.*")
 
     extensions.configure<DetektExtension> {
-//    autoCorrect = System.getenv()["CI"] != "true"
         autoCorrect = true
         source.setFrom(
             objects.fileCollection().from(
@@ -47,7 +69,6 @@ allprojects {
             )
         )
         buildUponDefaultConfig = false
-        // point to your custom config defining rules to run, overwriting default behavior
         config.setFrom(files("$rootDir/config/detekt.yml"))
     }
 
@@ -61,6 +82,43 @@ allprojects {
 
     tasks.withType<DetektCreateBaselineTask>().configureEach {
         jvmTarget = libs.versions.javaTargetCompatibility.get()
+    }
+
+    kover {
+        currentProject {
+            instrumentation {
+                excludedClasses.addAll(koverExcludeList)
+            }
+            sources {
+                excludeJava = true
+            }
+        }
+        reports {
+            filters {
+                excludes { classes(koverExcludeList) }
+                includes { classes(koverIncludeList) }
+            }
+
+            total {
+                filters {
+                    excludes { classes(koverExcludeList) }
+                    includes { classes(koverIncludeList) }
+                }
+                verify {
+                    rule("Minimum coverage verification error") {
+                        disabled = false
+                        groupBy = kotlinx.kover.gradle.plugin.dsl.GroupingEntityType.APPLICATION
+
+                        bound {
+                            minValue.set(defaultRequiredMinimumCoverage)
+                            maxValue.set(defaultRequiredMaximumCoverage)
+                            coverageUnits.set(CoverageUnit.LINE)
+                            aggregationForGroup = kotlinx.kover.gradle.plugin.dsl.AggregationType.COVERED_PERCENTAGE
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 

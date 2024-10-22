@@ -1,10 +1,10 @@
-package io.imrekaszab.eaplayers.ui.viewmodel
+package io.imrekaszab.eaplayers.playerlist.viewmodel
 
 import androidx.lifecycle.ViewModel
 import io.imrekaszab.eaplayers.core.util.command
 import io.imrekaszab.eaplayers.domain.action.EAPlayerAction
 import io.imrekaszab.eaplayers.domain.store.EAPlayerStore
-import io.imrekaszab.eaplayers.ui.model.PlayerListState
+import io.imrekaszab.eaplayers.playerlist.model.PlayerListState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
