@@ -5,6 +5,7 @@
 ![iOS](https://img.shields.io/badge/iOS-000000?style=for-the-badge&logo=ios&logoColor=white)
 ![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)
 ![Kotlin](https://img.shields.io/badge/Kotlin-0095D5?&style=for-the-badge&logo=kotlin&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white)
 
 EAPlayers is a Kotlin Multiplatform project utilizing **Compose Multiplatform** to deliver a native app experience for Android, iOS, and desktop.
 
@@ -30,16 +31,57 @@ EAPlayers is a showcase of the latest Kotlin Multiplatform technologies for mobi
 - 🛠️ **Code Style and Inspections** to enforce consistent formatting and static analysis
 - ⚙️ **GitHub Actions** for continuous integration to ensure code quality
 - 🌙 **Dark mode** support for both platforms
+- 🧪 **Unit Tests** for ViewModels and UseCases to ensure business logic correctness
 - 💉 [Koin](https://github.com/InsertKoinIO/koin) - Dependency injection ![GitHub stars](https://img.shields.io/github/stars/InsertKoinIO/koin?style=social)
 - 🌎 [Ktor](https://github.com/ktorio/ktor) - Network communication ![GitHub stars](https://img.shields.io/github/stars/ktorio/ktor?style=social)
 - 📦 [Coil](https://github.com/coil-kt/coil) - Image loading ![GitHub stars](https://img.shields.io/github/stars/coil-kt/coil?style=social)
 - 📋 [Kermit](https://github.com/touchlab/Kermit) - Logging ![GitHub stars](https://img.shields.io/github/stars/touchlab/Kermit?style=social)
+- 🧹 [Mockk](https://github.com/mockk/mockk) - A powerful mocking library for Kotlin unit tests.
+- 📊 [Kover](https://github.com/Kotlin/kotlinx-kover) for test coverage tracking, ensuring high code quality with coverage reports.
+
 
 
 ### IDE Compatibility
 
-- **Android Studio**: Koala | 2024.1.1 Patch 2
+- **Android Studio** Ladybug | 2024.2.1 Patch 1
 - **Xcode**: Version 16.0
+
+---
+
+<details>
+<summary><strong>Unit Tests</strong></summary>
+
+The project includes unit tests for critical business logic components like **ViewModels** and **UseCases**. These tests run on Android, ensuring the robustness of the core logic across platforms. 
+The tests are written using Kotlin's built-in testing framework, with mocking provided by **Mockk** to simplify testing dependencies.
+
+- **ViewModel Tests**: Verifying the business logic and states generated in the shared ViewModel.
+- **Service (UseCase) Tests**: Ensuring correctness of the app's core operations, including fetching player and team data.
+- **Mocking**: Uses **Mockk** to mock dependencies in ViewModels and UseCases for isolated testing.
+- **Code Coverage**: For newly added **ViewModels** and **Services**, Kover ensures that they meet a minimum of **80% code coverage**.
+
+To check the code coverage for the project, run:
+
+```bash
+./gradlew koverHtmlReportDebug
+```
+
+This will generate a detailed HTML report of the code coverage at the following location:
+
+```
+./composeApp/build/reports/kover/htmlDebug/index.html
+```
+
+To verify that the code meets the required minimum **80% code coverage**, use the following command:
+
+```bash
+./gradlew koverVerifyDebug
+```
+
+This command will ensure that the coverage verification passes, enforcing the code quality standards for the project.
+
+---
+
+</details>
 
 <details>
 <summary><strong>Setting up Code Style and Inspections in IDEA / Android Studio</strong></summary>
@@ -183,8 +225,20 @@ The workflow consists of several jobs:
     - Depends on the "pre-conditions" job.
     - Configures the environment, selects the Xcode version, resolves Swift package dependencies, and builds the iOS app using `xcodebuild`. It targets an iOS Simulator with the specified configuration.
 
+4. **Comment Test**:
+   - Depends on the "pre-conditions" job.
+   - Adds the Kover report to the pull request if the build passes.
+
 #### Kotlin Multiplatform Cache Action
 
 A custom action is used for caching Gradle and Kotlin Native artifacts to speed up the build process. The action caches directories such as Gradle caches, wrapper files, and Kotlin Native dependencies. The cache keys are based on the content of Gradle build files, ensuring cache consistency across builds.
+
+#### Comment Kover Report to the PR Action
+
+This workflow downloads a code coverage report artifact and adds it as a comment to the pull request using the Kover Report GitHub Action.
+
+#### Kover XML Report
+
+This workflow runs the koverXmlReportDebug Gradle task and generates an XML report for code coverage using the Kover plugin.
 
 </details>
