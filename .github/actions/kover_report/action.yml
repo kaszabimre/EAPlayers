@@ -46,7 +46,7 @@ runs:
           echo "kover_report_available=false" >> $GITHUB_OUTPUT
         fi
     - name: Upload reports
-      uses: actions/upload-artifact@v3.1.2
+      uses: actions/upload-artifact@v3.2.1
       if: steps.koverXmlReportDebug.outputs.kover_report_available == 'true'
       with:
         name: ${{ inputs.artifacts_name }}
