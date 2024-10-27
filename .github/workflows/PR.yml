@@ -37,7 +37,7 @@ jobs:
           WORKING_DIRECTORY: ./iosApp
 
       - name: Tests
-        uses: gradle/gradle-build-action@v2.6.1
+        uses: gradle/gradle-build-action@v2.12.0
         with:
           arguments: test
 
