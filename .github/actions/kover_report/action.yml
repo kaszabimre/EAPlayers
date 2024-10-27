@@ -33,7 +33,7 @@ runs:
 
   steps:
     - name: koverXmlReportDebug
-      uses: gradle/gradle-build-action@v2.6.1
+      uses: gradle/gradle-build-action@v3.5.0
       with:
         arguments: koverXmlReportDebug
     - name: Check if report is available
