@@ -18,7 +18,7 @@ runs:
 
     - name: Add coverage report to PR
       id: kover
-      uses: mi-kas/kover-report@v1.6
+      uses: mi-kas/kover-report@v1.9
       with:
         path: ${{ github.workspace }}/reportDebug.xml
         token: ${{ github.token }}
