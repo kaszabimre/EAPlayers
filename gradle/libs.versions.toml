@@ -5,7 +5,7 @@ javaTargetCompatibility = "17"
 javaSourceCompatibility = "11"
 
 agp = "8.7.2"
-kotlin = "2.0.21"
+kotlin = "2.1.20-rigel-276"
 coroutines = "1.9.0"
 compose = "1.7.4"
 composeCompiler = "1.5.15"
