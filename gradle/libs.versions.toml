@@ -19,7 +19,7 @@ ktor = "2.3.12"
 coil3 = "3.0.4"
 coil3Network = "3.0.0-alpha08"
 
-kermit = "2.0.4"
+kermit = "2.0.5"
 slf4j = "2.0.16"
 mockk = "1.13.13"
 kover = "0.8.3"
