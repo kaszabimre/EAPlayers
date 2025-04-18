@@ -70,7 +70,7 @@ jobs:
 
   build-ios:
     needs: pre-conditions
-    runs-on: macos-14
+    runs-on: macos-15
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -89,7 +89,7 @@ jobs:
 
       - name: Select Xcode version
         run: |
-          XCODE_VERSION="15.0"
+          XCODE_VERSION="16.0"
           sudo xcode-select -s "/Applications/Xcode_${XCODE_VERSION}.app"
 
       - name: Build
