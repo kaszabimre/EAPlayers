@@ -43,7 +43,7 @@ EAPlayers is a showcase of the latest Kotlin Multiplatform technologies for mobi
 
 ### IDE Compatibility
 
-- **Android Studio** Ladybug | 2024.2.1 Patch 1
+- **Android Studio** Meerkat | 2024.3.1 Patch 1
 - **Xcode**: Version 16.0
 
 ---

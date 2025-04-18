@@ -39,7 +39,8 @@ data class AppTypography(
     val button: Button = Button(dimens, fontFamily)
 )
 
-data class Heading internal constructor(
+@Immutable
+data class Heading(
     private val dimens: AppDimens,
     val scheme: ColorScheme,
     private val fontFamily: FontFamily,
@@ -66,7 +67,8 @@ data class Heading internal constructor(
     )
 )
 
-data class Body internal constructor(
+@Immutable
+data class Body(
     private val dimens: AppDimens,
     val scheme: ColorScheme,
     private val fontFamily: FontFamily,
@@ -92,7 +94,8 @@ data class Body internal constructor(
     ),
 )
 
-data class Button internal constructor(
+@Immutable
+data class Button(
     private val dimens: AppDimens,
     private val fontFamily: FontFamily,
     val large: TextStyle = TextStyle(

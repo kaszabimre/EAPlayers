@@ -30,7 +30,8 @@ data class AppColors(
     val blue: Blue = Blue(), // Blue Color
 ) {
     // Define Yellow color variations
-    data class Yellow internal constructor(
+    @Immutable
+    data class Yellow(
         val default: Color = Color(0xFFFFC107), // Default Yellow (Secondary)
         val light1: Color = Color(0xFFFFD54F), // Lighter shade of Yellow
         val light2: Color = Color(0xFFFFECB3), // Lighter yellow variant
@@ -38,7 +39,8 @@ data class AppColors(
     )
 
     // Define Blue color variations
-    data class Blue internal constructor(
+    @Immutable
+    data class Blue(
         val default: Color = Color(0xFF0D47A1), // Default Dark Blue (Primary)
         val light1: Color = Color(0xFF5472D3), // Lighter Blue (PrimaryContainer)
         val light2: Color = Color(0xFFBBDEFB), // Light Blue variant
@@ -46,19 +48,22 @@ data class AppColors(
     )
 
     // Define Red color variations
-    data class Red internal constructor(
+    @Immutable
+    data class Red(
         val default: Color = Color(0xFFEE4338),
         val light3: Color = Color(0xFFFFEFEE)
     )
 
     // Define Black and White color variations
-    data class BlackAndWhite internal constructor(
+    @Immutable
+    data class BlackAndWhite(
         val black: Color = Color(0xFF000000),
         val white: Color = Color(0xFFFFFFFF)
     )
 
     // Define Background and Surface colors for both Light and Dark themes
-    data class BackgroundSurfaceColors internal constructor(
+    @Immutable
+    data class BackgroundSurfaceColors(
         val lightBackground: Color = Color(0xFFF6F6F6), // Light Background
         val lightSurface: Color = Color.White, // Light Surface
         val darkBackground: Color = Color(0xFF121212), // Dark Background
@@ -66,14 +71,16 @@ data class AppColors(
     )
 
     // BottomNavigation colors
-    data class BottomNavigation internal constructor(
+    @Immutable
+    data class BottomNavigation(
         val containerColor: Color = Color(0xFFFFFFFF),
         val containerShadowColor: Color = Color(0xFF000000),
         val defaultItem: ItemColor = ItemColor(contentColor = Color(0x80000000)),
         val selectedItem: ItemColor = ItemColor(contentColor = Color(0xFF000000)),
         val disabledItem: ItemColor = ItemColor(contentColor = Color(0x80EFEFEF))
     ) {
-        data class ItemColor internal constructor(
+        @Immutable
+        data class ItemColor(
             val containerColor: Color = Color.Transparent,
             val contentColor: Color = Color(0xFF000000)
         )

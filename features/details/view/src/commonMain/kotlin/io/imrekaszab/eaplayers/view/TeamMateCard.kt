@@ -24,6 +24,7 @@ import eaplayers.features.details.view.generated.resources.Res
 import eaplayers.features.details.view.generated.resources.team_mates
 import io.imrekaszab.eaplayers.domain.model.Player
 import io.imrekaszab.eaplayers.theme.AppTheme
+import io.imrekaszab.eaplayers.theme.util.EAImageLoader
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
@@ -68,6 +69,7 @@ fun TeamMateCard(mate: Player, onTeamMateSelected: (Player) -> Unit) {
                 .size(AppTheme.dimens.playerDetailView.imageSize)
                 .clip(AppTheme.shapes.default.circle),
             model = mate.avatarUrl,
+            imageLoader = EAImageLoader(),
             contentDescription = mate.lastName
         )
         Spacer(modifier = Modifier.height(AppTheme.dimens.margin.tiny))

@@ -14,6 +14,7 @@ import androidx.compose.ui.text.font.FontWeight
 import coil3.compose.AsyncImage
 import io.imrekaszab.eaplayers.domain.model.PlayerAbility
 import io.imrekaszab.eaplayers.theme.AppTheme
+import io.imrekaszab.eaplayers.theme.util.EAImageLoader
 
 @Composable
 fun AbilityItemView(ability: PlayerAbility) {
@@ -24,9 +25,10 @@ fun AbilityItemView(ability: PlayerAbility) {
         verticalAlignment = Alignment.CenterVertically
     ) {
         AsyncImage(
+            modifier = Modifier.size(AppTheme.dimens.imageSize.abilityItemImageSize),
             model = ability.imageUrl,
-            contentDescription = ability.label,
-            modifier = Modifier.size(AppTheme.dimens.imageSize.abilityItemImageSize)
+            imageLoader = EAImageLoader(),
+            contentDescription = ability.label
         )
         Spacer(modifier = Modifier.width(AppTheme.dimens.margin.default))
         Text(
