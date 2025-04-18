@@ -12,14 +12,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import coil3.compose.AsyncImage
 import io.imrekaszab.eaplayers.theme.AppTheme
+import io.imrekaszab.eaplayers.theme.util.EAImageLoader
 
 @Composable
 fun PlayerStatItem(imageUrl: String, stat: String, label: String) {
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         AsyncImage(
+            modifier = Modifier.size(AppTheme.dimens.imageSize.playerStatItemIconSize),
             model = imageUrl,
-            contentDescription = label,
-            modifier = Modifier.size(AppTheme.dimens.imageSize.playerStatItemIconSize)
+            imageLoader = EAImageLoader(),
+            contentDescription = label
         )
         Spacer(modifier = Modifier.height(AppTheme.dimens.margin.tiny))
         Text(

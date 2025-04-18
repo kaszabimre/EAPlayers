@@ -14,6 +14,7 @@ import eaplayers.features.details.view.generated.resources.Res
 import eaplayers.features.details.view.generated.resources.player_rank
 import io.imrekaszab.eaplayers.domain.model.Player
 import io.imrekaszab.eaplayers.theme.AppTheme
+import io.imrekaszab.eaplayers.theme.util.EAImageLoader
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
@@ -28,6 +29,7 @@ fun PlayerImage(player: Player) {
     ) {
         AsyncImage(
             model = player.shieldUrl,
+            imageLoader = EAImageLoader(),
             contentDescription = stringResource(
                 Res.string.player_rank,
                 player.firstName,

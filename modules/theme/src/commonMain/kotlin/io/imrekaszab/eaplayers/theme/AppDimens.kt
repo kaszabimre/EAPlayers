@@ -17,7 +17,7 @@ import androidx.compose.ui.unit.sp
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Immutable
-data class AppDimens internal constructor(
+data class AppDimens(
     val margin: Margin = Margin(),
     val fontSize: FontSize = FontSize(),
     val lineHeight: LineHeight = LineHeight(),
@@ -29,7 +29,8 @@ data class AppDimens internal constructor(
     val playerDetailView: PlayerDetailView = PlayerDetailView(),
     val statItem: StatItem = StatItem(),
 ) {
-    data class Margin internal constructor(
+    @Immutable
+    data class Margin(
         val huge: Dp = 56.dp,
         val extraLarge: Dp = 48.dp,
         val larger: Dp = 44.dp,
@@ -46,7 +47,8 @@ data class AppDimens internal constructor(
         val tiniest: Dp = 2.dp
     )
 
-    data class FontSize internal constructor(
+    @Immutable
+    data class FontSize(
         val headerL: TextUnit = 28.sp,
         val headerM: TextUnit = 22.sp,
         val headerS: TextUnit = 18.sp,
@@ -61,7 +63,8 @@ data class AppDimens internal constructor(
         val buttonT: TextUnit = 14.sp
     )
 
-    data class LineHeight internal constructor(
+    @Immutable
+    data class LineHeight(
         val headerL: TextUnit = 34.sp,
         val headerM: TextUnit = 28.sp,
         val headerS: TextUnit = 23.sp,
@@ -72,31 +75,37 @@ data class AppDimens internal constructor(
         val buttonT: TextUnit = 24.sp
     )
 
-    data class Divider internal constructor(
+    @Immutable
+    data class Divider(
         val thickness: Dp = 1.dp
     )
 
-    data class BottomNavigation internal constructor(
+    @Immutable
+    data class BottomNavigation(
         val shadowRadius: Dp = 24.dp,
         val menuElevation: Dp = 3.dp
     )
 
-    data class DrawerMenu internal constructor(
+    @Immutable
+    data class DrawerMenu(
         val dividerStartPadding: Dp = 60.dp
     )
 
-    data class TextInput internal constructor(
+    @Immutable
+    data class TextInput(
         val textInputMinHeight: Dp = 60.dp,
         val textInputHeight: Dp = 104.dp,
         val longTextInputHeight: Dp = 104.dp
     )
 
-    data class ImageSize internal constructor(
+    @Immutable
+    data class ImageSize(
         val abilityItemImageSize: Dp = 40.dp,
         val playerStatItemIconSize: Dp = 32.dp,
     )
 
-    data class PlayerDetailView internal constructor(
+    @Immutable
+    data class PlayerDetailView(
         val boxSize: Dp = 400.dp,
         val imageSize: Dp = 50.dp,
         val cardWidth: Dp = 80.dp,
@@ -104,7 +113,8 @@ data class AppDimens internal constructor(
         val playerItemImageSize: Dp = 100.dp
     )
 
-    data class StatItem internal constructor(
+    @Immutable
+    data class StatItem(
         val circleSize: Dp = 100.dp
     )
 }

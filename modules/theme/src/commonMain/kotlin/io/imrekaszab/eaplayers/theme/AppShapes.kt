@@ -11,7 +11,7 @@ data class AppShapes(
     private val appDimens: AppDimens,
     val default: Default = Default(dimens = appDimens),
 ) {
-    data class Default internal constructor(
+    data class Default(
         private val dimens: AppDimens,
         val circle: Shape = CircleShape,
         val roundedBig: Shape = RoundedCornerShape(dimens.margin.big),

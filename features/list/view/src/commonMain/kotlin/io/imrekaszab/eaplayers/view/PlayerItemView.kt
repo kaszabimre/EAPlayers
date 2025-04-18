@@ -26,6 +26,7 @@ import eaplayers.features.list.view.generated.resources.rank
 import eaplayers.features.list.view.generated.resources.rating_with_param
 import io.imrekaszab.eaplayers.domain.model.Player
 import io.imrekaszab.eaplayers.theme.AppTheme
+import io.imrekaszab.eaplayers.theme.util.EAImageLoader
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
@@ -57,15 +58,16 @@ fun PlayerItemView(player: Player, onPlayerClick: (Player) -> Unit) {
 @Composable
 fun PlayerDetailImage(player: Player) {
     AsyncImage(
+        modifier = Modifier
+            .size(AppTheme.dimens.playerDetailView.playerItemImageSize)
+            .padding(end = AppTheme.dimens.margin.default),
         model = player.avatarUrl,
+        imageLoader = EAImageLoader(),
         contentDescription = stringResource(
             Res.string.player_image_desc,
             player.firstName,
             player.lastName
-        ),
-        modifier = Modifier
-            .size(AppTheme.dimens.playerDetailView.playerItemImageSize)
-            .padding(end = AppTheme.dimens.margin.default)
+        )
     )
 }
 
