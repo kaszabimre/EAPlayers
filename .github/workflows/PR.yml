@@ -36,10 +36,11 @@ jobs:
         env:
           WORKING_DIRECTORY: ./iosApp
 
-      - name: Tests
+      - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
-        with:
-          arguments: test
+
+      - name: Run the tests
+        run: ./gradlew test
 
       - name: Kover XML Report
         uses: ./.github/actions/kover_report
