@@ -22,7 +22,7 @@ mockk = "1.13.17"
 kover = "0.8.3"
 
 koin = "4.0.4"
-koinCompose = "4.0.0"
+koinCompose = "4.0.4"
 
 detekt = "1.23.8"
 composeMaterial = "1.4.1"
