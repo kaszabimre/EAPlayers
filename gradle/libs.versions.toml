@@ -4,7 +4,7 @@ targetSdk = "35"
 javaTargetCompatibility = "17"
 
 agp = "8.9.2"
-kotlin = "2.1.20"
+kotlin = "2.1.20-218"
 coroutines = "1.10.2"
 compose = "1.7.8"
 compose-multiplatform = "1.7.3"
