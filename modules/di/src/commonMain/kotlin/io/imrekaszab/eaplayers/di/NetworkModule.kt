@@ -11,7 +11,6 @@ import io.ktor.http.encodedPath
 import io.ktor.http.takeFrom
 import io.ktor.serialization.kotlinx.json.json
 import io.ktor.utils.io.charsets.Charsets
-import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
 import org.koin.core.module.Module
 import org.koin.dsl.module
@@ -46,7 +45,6 @@ internal fun networkModule(isDebug: Boolean, baseUrl: String) = module {
                     Json {
                         ignoreUnknownKeys = true
                         isLenient = true
-                        @OptIn(ExperimentalSerializationApi::class)
                         explicitNulls = false
                     }
                 )
