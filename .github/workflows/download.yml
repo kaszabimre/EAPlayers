@@ -27,15 +27,16 @@ jobs:
           echo "{\"username\":\"${{ secrets.KAGGLE_USERNAME }}\",\"key\":\"${{ secrets.KAGGLE_KEY }}\"}" > ~/.kaggle/kaggle.json
           chmod 600 ~/.kaggle/kaggle.json
 
-      - name: Download players.csv
+      - name: Download all_players.csv
         run: |
-          kaggle datasets download -d nyagami/ea-sports-fc-25-database-ratings-and-stats -f players.csv --force
+          kaggle datasets download -d nyagami/ea-sports-fc-25-database-ratings-and-stats -f all_players.csv --force
           unzip -o ea-sports-fc-25-database-ratings-and-stats.zip
 
       - name: Commit updated file
         run: |
           git config --global user.name 'github-actions'
+          git config --global user.name 'github-actions'
           git config --global user.email 'github-actions@users.noreply.github.com'
-          git add players.csv
-          git commit -m "Update players.csv from Kaggle [auto]" || echo "No changes"
+          git add all_players.csv
+          git commit -m "Update all_players.csv from Kaggle [auto]" || echo "No changes"
           git push
