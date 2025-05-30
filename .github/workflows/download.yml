@@ -1,0 +1,41 @@
+name: Weekly Kaggle CSV Update
+
+on:
+  schedule:
+    - cron: '0 0 * * 0' # every sunday 00:00
+  workflow_dispatch:
+
+jobs:
+  download-and-commit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install Kaggle API
+        run: pip install kaggle
+
+      - name: Configure Kaggle credentials
+        run: |
+          mkdir -p ~/.kaggle
+          echo "{\"username\":\"${{ secrets.KAGGLE_USERNAME }}\",\"key\":\"${{ secrets.KAGGLE_KEY }}\"}" > ~/.kaggle/kaggle.json
+          chmod 600 ~/.kaggle/kaggle.json
+
+      - name: Download players.csv
+        run: |
+          kaggle datasets download -d nyagami/ea-sports-fc-25-database-ratings-and-stats -f players.csv --force
+          unzip -o ea-sports-fc-25-database-ratings-and-stats.zip
+
+      - name: Commit updated file
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@users.noreply.github.com'
+          git add players.csv
+          git commit -m "Update players.csv from Kaggle [auto]" || echo "No changes"
+          git push
