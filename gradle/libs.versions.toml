@@ -3,7 +3,7 @@ minSdk = "30"
 targetSdk = "35"
 javaTargetCompatibility = "17"
 
-agp = "8.9.2"
+agp = "8.13.2"
 kotlin = "2.1.20"
 coroutines = "1.10.2"
 compose = "1.8.0"
