@@ -14,7 +14,7 @@ compose-viewmodel = "2.8.4"
 androidx-activityCompose = "1.10.1"
 
 ktor = "3.1.2"
-coil3 = "3.1.0"
+coil3 = "3.6.2"
 
 kermit = "2.0.5"
 slf4j = "2.0.17"
